@@ -1,7 +1,7 @@
 const https = require('https');
 
-const botToken = '8906068445:AAGc5L08H9a1Lc0oYIDL9o4ZqjJbLVMII4Y';
-const edgeFunctionUrl = 'https://acnaidlegwkqcjxbdwra.supabase.co/functions/v1/api';
+const token = '8906068445:AAGc5L08H9a1Lc0oYIDL9o4ZqjJbLVMII4Y';
+const webhookUrl = 'https://acnaidlegwkqcjxbdwra.supabase.co/functions/v1/api/bot';
 
 function request(url) {
     return new Promise((resolve, reject) => {
@@ -13,10 +13,11 @@ function request(url) {
     });
 }
 
-async function run() {
-    console.log(`Setting webhook to ${edgeFunctionUrl}...`);
-    const res = await request(`https://api.telegram.org/bot${botToken}/setWebhook?url=${encodeURIComponent(edgeFunctionUrl)}`);
-    console.log("Telegram API Response:", res);
+async function setWebhook() {
+    console.log("Setting Telegram webhook to:", webhookUrl);
+    const url = `https://api.telegram.org/bot${token}/setWebhook?url=${encodeURIComponent(webhookUrl)}&allowed_updates=${encodeURIComponent(JSON.stringify(["message", "callback_query", "chat_member"]))}`;
+    const res = await request(url);
+    console.log("Webhook Response:", res);
 }
 
-run();
+setWebhook();
