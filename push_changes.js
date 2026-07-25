@@ -1,7 +1,7 @@
 const { MESSAGES } = require('./api/messages');
 
-const SUPABASE_URL = "https://acnaidlegwkqcjxbdwra.supabase.co";
-const SUPABASE_KEY = "sb_publishable_pmI9gZu_QwYfq896kFMjUw_GmQe_HPn";
+const SUPABASE_URL = "https://yrelqbvkxwdkzaraydfz.supabase.co";
+const SUPABASE_KEY = "sb_publishable_ZIfc-LO2UBt8CPVdY-WUgQ_U_WGF8T3";
 
 const headers = {
     "apikey": SUPABASE_KEY,
@@ -11,7 +11,7 @@ const headers = {
 };
 
 async function seedTranslations() {
-    console.log("Seeding languages via REST API...");
+    console.log("Seeding languages via REST API to new Supabase project...");
     const languages = [
         { code: "en", name: "English", is_active: true },
         { code: "am", name: "አማርኛ", is_active: true },

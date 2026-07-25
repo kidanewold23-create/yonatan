@@ -1,7 +1,7 @@
 const https = require('https');
 
 const token = '8906068445:AAGc5L08H9a1Lc0oYIDL9o4ZqjJbLVMII4Y';
-const webhookUrl = 'https://acnaidlegwkqcjxbdwra.supabase.co/functions/v1/api/bot';
+const webhookUrl = 'https://yrelqbvkxwdkzaraydfz.supabase.co/functions/v1/api/bot';
 
 function request(url) {
     return new Promise((resolve, reject) => {

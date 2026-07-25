@@ -5,12 +5,12 @@ import { Buffer } from "https://deno.land/std@0.168.0/node/buffer.ts";
 
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL") || "";
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") || Deno.env.get("SUPABASE_ANON_KEY") || "";
-const TELEGRAM_TOKEN = Deno.env.get("TELEGRAM_BOT_TOKEN") || "8906068445:AAGc5L08H9a1Lc0oYIDL9o4ZqjJbLVMII4Y";
+const TELEGRAM_TOKEN = Deno.env.get("TELEGRAM_BOT_TOKEN") || "8602881468:AAF04TGYwH18uuKPlGhC3qtAnmFBfHrZh_4";
 const TELEGRAM_CHANNEL_ID = Deno.env.get("TELEGRAM_CHANNEL_ID") || "";
 const ADMIN_CHAT_ID = Deno.env.get("ADMIN_CHAT_ID") || "";
 const ADMIN_USERNAME = Deno.env.get("ADMIN_USERNAME") || "admin";
 const ADMIN_PASSWORD = Deno.env.get("ADMIN_PASSWORD") || "admin123";
-const JWT_SECRET = Deno.env.get("JWT_SECRET") || "super-secret-founders-academy-token-key-12345!";
+const JWT_SECRET = Deno.env.get("JWT_SECRET") || "super-secret-craftopia-token-key-12345!";
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
@@ -23,7 +23,7 @@ const corsHeaders = {
 // Static Messages fallback
 const STATIC_MESSAGES = {
   "en": {
-    "welcome_choose_lang": "🇬🇧 Welcome to Founders Academy Registration Bot!\nPlease select your preferred language below:",
+    "welcome_choose_lang": "🇬🇧 Welcome to Craftopia Hand Craft School Registration Bot!\nPlease select your preferred language below:",
     "ask_name": "📝 Please enter your full name:",
     "ask_name_am": "📝 Please enter your **Full Name in Amharic** (e.g. አበበ በሶ):",
     "ask_name_en": "📝 Please enter your **Full Name in English** (e.g. Abebe Beso):",
@@ -50,10 +50,10 @@ const STATIC_MESSAGES = {
     "status_declined": "Declined ❌",
     "no_receipt_yet": "You haven't submitted any receipts yet. Type /start to begin.",
     "already_pending": "⚠️ You already have a pending registration. Please wait for approval.",
-    "referral_message": "👥 **Refer and Earn!**\n\nShare your link with friends. When they register and get approved, you get credit!\n\n🔗 **Your referral link**:\n`{ref_link}`",
+    "referral_message": "👥 **Refer and Earn!**\n\nShare your link with friends. When they register and get approved, you get credit!\n\n🔗 **Your referral link**:\n{ref_link}",
     "ready_new_receipt": "Ready to submit a new receipt? Please select payment method below:",
     "payment_saved": "✅ Payment method saved!",
-    "help_instructions": "ℹ️ **Founders Academy Bot Help**\n\n- Use /start to begin registration.\n- Use the menu buttons to submit receipts, refer friends, check status, or change language.",
+    "help_instructions": "ℹ️ **Craftopia Bot Help**\n\n- Use /start to begin registration.\n- Use the menu buttons to submit receipts, refer friends, check status, or change language.",
     "already_registered": "You have already registered. Please use the menu below to check your status or refer friends.",
     "status_approved_msg": "🎉 **Your registration is approved!**\nReceipt: `{receipt}`\n\n🔗 Join our Private Channel here:\n{link}",
     "status_declined_msg": "❌ **Your registration was declined.**\nReceipt: `{receipt}`\n\n⚠️ **Reason**: {reason}",
@@ -65,11 +65,11 @@ const STATIC_MESSAGES = {
     "welcome_name_prefix": "Hello {name}! ",
     "receipt_approved_msg": "🎉 **Receipt Verification Approved!**\n\nHello **{name}**, your receipt `{receipt}` has been verified successfully. You are now approved to join our premium private channel!\n\n🔗 **Your One-time Invite Link**:\n{link}\n\n*Note: This link is unique and can only be used by one person.*",
     "receipt_declined_msg": "❌ **Receipt Verification Declined**\n\nHello **{name}**, we are sorry, but your receipt `{receipt}` has been declined.\n\n⚠️ **Reason**: {reason}",
-    "referral_reward_msg": "🎁 **Congratulations! You referred 3 friends successfully!**\n\nHello **{name}**, because you have referred 3 friends, you got the Founders Academy course for free! You are now approved to join our premium private channel!\n\n🔗 **Your One-time Invite Link**:\n{link}\n\n*Note: This link is unique and can only be used by one person.*",
+    "referral_reward_msg": "🎁 **Congratulations! You referred 3 friends successfully!**\n\nHello **{name}**, because you have referred 3 friends, you got the Craftopia course for free! You are now approved to join our premium private channel!\n\n🔗 **Your One-time Invite Link**:\n{link}\n\n*Note: This link is unique and can only be used by one person.*",
     "quiz_not_completed": "⚠️ **Quiz Not Completed**\n\nYou must complete all daily quizzes to get a certificate of completion."
   },
   "am": {
-    "welcome_choose_lang": "🇪🇹 ወደ ፋውንደርስ አካዳሚ ምዝገባ ቦት እንኳን ደህና መጡ!\nእባክዎ ተመራጭ ቋንቋዎን ከታች ይምረጡ:",
+    "welcome_choose_lang": "🇪🇹 ወደ ክራፍቶፒያ የእጅ ጥበብ ትምህርት ቤት የእጅ ሥራ ምዝገባ ቦት እንኳን ደህና መጡ!\nእባክዎ ተመራጭ ቋንቋዎን ከታች ይምረጡ:",
     "ask_name": "📝 እባክዎን ሙሉ ስምዎን ያስገቡ:",
     "ask_name_am": "📝 እባክዎ **ሙሉ ስምዎን በአማርኛ** ያስገቡ (ምሳሌ፡ አበበ በሶ):",
     "ask_name_en": "📝 እባክዎ **ሙሉ ስምዎን በእንግሊዝኛ** ያስገቡ (ምሳሌ፡ Abebe Beso):",
@@ -96,10 +96,10 @@ const STATIC_MESSAGES = {
     "status_declined": "ውድቅ ተደርጓል ❌",
     "no_receipt_yet": "እስካሁን ምንም ደረሰኝ አላስገቡም። ለመጀመር /start ብለው ይፃፉ።",
     "already_pending": "⚠️ ቀድሞውኑ በመጠባበቅ ላይ ያለ ምዝገባ አለዎት። እባክዎ እስኪፈቀድ ይጠብቁ።",
-    "referral_message": "👥 **ይጋብዙ እና ያግኙ!**\n\nየመጋበዣ ሊንክዎን ለጓደኞችዎ ያጋሩ። እነሱ ሲመዘገቡ እና ሲፈቀድላቸው እርስዎ ክሬዲት ያገኛሉ!\n\n🔗 **የእርስዎ መጋበዣ ሊንክ**:\n`{ref_link}`",
+    "referral_message": "👥 **ይጋብዙ እና ያግኙ!**\n\nየመጋበዣ ሊንክዎን ለጓደኞችዎ ያጋሩ። እነሱ ሲመዘገቡ እና ሲፈቀድላቸው እርስዎ ክሬዲት ያገኛሉ!\n\n🔗 **የእርስዎ መጋበዣ ሊንክ**:\n{ref_link}",
     "ready_new_receipt": "አዲስ ደረሰኝ ለማስገባት ዝግጁ ነዎት? እባክዎ ከታች የክፍያ ዘዴ ይምረጡ:",
     "payment_saved": "✅ የክፍያ ዘዴ ተቀምጧል!",
-    "help_instructions": "ℹ️ **የፋውንደርስ አካዳሚ ቦት እርዳታ**\n\n- ለመመዝገብ /start ይጠቀሙ።\n- ደረሰኝ ለማስገባት፣ ጓደኞችን ለመጋበዝ፣ ሁኔታን ለማረጋገጥ ወይም ቋንቋ ለመቀየር የማውጫ ቁልፎችን ይጠቀሙ።",
+    "help_instructions": "ℹ️ **የክራፍቶፒያ ቦት እርዳታ**\n\n- ለመመዝገብ /start ይጠቀሙ።\n- ደረሰኝ ለማስገባት፣ ጓደኞችን ለመጋበዝ፣ ሁኔታን ለማረጋገጥ ወይም ቋንቋ ለመቀየር የማውጫ ቁልፎችን ይጠቀሙ።",
     "already_registered": "ቀድሞውኑ ተመዝግበዋል። እባክዎ ሁኔታዎን ለማረጋገጥ ወይም ጓደኞችን ለመጋበዝ ከታች ያለውን ማውጫ ይጠቀሙ።",
     "status_approved_msg": "🎉 **ምዝገባዎ ጸድቋል!**\nደረሰኝ: `{receipt}`\n\n🔗 የእኛን ፕሪሚየም ቻናል ለመቀላቀል ይህንን ሊንክ ይጫኑ:\n{link}",
     "status_declined_msg": "❌ **ምዝገባዎ ውድቅ ተደርጓል።**\nደረሰኝ: `{receipt}`\n\n⚠️ **ምክንያት**: {reason}",
@@ -111,7 +111,7 @@ const STATIC_MESSAGES = {
     "welcome_name_prefix": "ሰላም {name}! ",
     "receipt_approved_msg": "🎉 **የደረሰኝ ማረጋገጫ ጸድቋል!**\n\nሰላም **{name}**፣ የደረሰኝ ቁጥርዎ `{receipt}` በተሳካ ሁኔታ ተረጋግጧል። አሁን የእኛን ፕሪሚየም የግል ቻናል ለመቀላቀል ፈቃድ አግኝተዋል!\n\n🔗 **የአንድ ጊዜ መጋበዣ ሊንክዎ**:\n{link}\n\n*ማስታወሻ: ይህ ሊንክ ልዩ ነው እና በአንድ ሰው ብቻ ነው ጥቅም ላይ ሊውል የሚችለው።*",
     "receipt_declined_msg": "❌ **የደረሰኝ ማረጋገጫ ተቀባይነት አላገኘም**\n\nሰላም **{name}**፣ የደረሰኝ ቁጥርዎ `{receipt}` ውድቅ ተደርጓል።\n\n⚠️ **ምክንያት**: {reason}",
-    "referral_reward_msg": "🎁 **እንኳን ደስ አሰኞት! 3 ጓደኞችን በተሳካ ሁኔታ ጋብዘዋል!**\n\nሰላም **{name}**፣ 3 ሰዎችን ስለጋበዙ የፋውንደርስ አካዳሚ ኮርሱን በነጻ አግኝተዋል! አሁን የእኛን ፕሪሚየም የግል ቻናል ለመቀላቀል ፈቃድ አግኝተዋል!\n\n🔗 **የአንድ ጊዜ መጋበዣ ሊንክዎ**:\n{link}\n\n*ማስታወሻ: ይህ ሊንክ ልዩ ነው እና በአንድ ሰው ብቻ ነው ጥቅም ላይ ሊውል የሚችለው።*",
+    "referral_reward_msg": "🎁 **እንኳን ደስ አሰኞት! 3 ጓደኞችን በተሳካ ሁኔታ ጋብዘዋል!**\n\nሰላም **{name}**፣ 3 ሰዎችን ስለጋበዙ የCraftopia ኮርሱን በነጻ አግኝተዋል! አሁን የእኛን ፕሪሚየም የግል ቻናል ለመቀላቀል ፈቃድ አግኝተዋል!\n\n🔗 **የአንድ ጊዜ መጋበዣ ሊንክዎ**:\n{link}\n\n*ማስታወሻ: ይህ ሊንክ ልዩ ነው እና በአንድ ሰው ብቻ ነው ጥቅም ላይ ሊውል የሚችለው።*",
     "quiz_not_completed": "⚠️ **ጥያቄዎች አልተጠናቀቁም**\n\nየማጠናቀቂያ ሰርተፊኬት ለማግኘት ሁሉንም ዕለታዊ ጥያቄዎች ማጠናቀቅ አለብዎት።"
   }
 };
@@ -236,7 +236,7 @@ async function getLanguageKeyboard() {
   try {
     const { data: langs } = await supabase.from("languages").select("*").eq("is_active", true);
     if (langs && langs.length > 0) {
-      const flags: any = { "en": "🇬🇧", "am": "🇪🇹", "or": "🇪🇹", "tg": "🇪🇹", "om": "🇪🇹", "ti": "🇪🇹" };
+      const flags: any = { "en": "🇬🇧", "am": "🇪🇹", "or": "🇪🇹", "tg": "🇪🇹" };
       const buttons = langs.map((l: any) => ({
         text: `${flags[l.code] || "🌐"} ${l.name}`,
         callback_data: `lang:${l.code}`
@@ -475,6 +475,7 @@ async function generateCertificatePdf(name: string, regDate: string, finishDate:
     const antiqueGold = "#C5A032";
     const pureGold    = "#FFD700";
 
+    // Helper: auto-pick font based on whether text has Ethiopic chars
     const hasEthiopic = (text: string) => /[\u1200-\u137F]/.test(text || "");
     const ethFont  = (bold: boolean) => bold ? "Ethiopic-Bold" : "Ethiopic";
     const latFont  = (bold: boolean) => bold ? "Helvetica-Bold" : "Helvetica";
@@ -483,99 +484,133 @@ async function generateCertificatePdf(name: string, regDate: string, finishDate:
     doc.registerFont("Ethiopic",      fontRegularBytes);
     doc.registerFont("Ethiopic-Bold", fontBoldBytes);
 
+    // ── Background ─────────────────────────────────────────────────────────
     doc.image(bgBytes, 0, 0, { width: 841.89, height: 595.28 });
 
+
+
+    // ── SECTION 2: Header and Logo (Side-by-Side) ──────────────────────────
+    // Logo Emblem (Centred at 110, 95)
     const logoX = 110, logoY = 95;
+    // Spark above green emblem
     doc.circle(logoX, logoY - 30, 4.5).fillColor(pureGold).fill();
+    // Forest Green stylized glyph
     doc.circle(logoX, logoY, 19.5).fillColor(forestGreen).fill();
     doc.circle(logoX, logoY, 13.5).fillColor("#ffffff").fill();
     doc.circle(logoX, logoY, 6).fillColor(forestGreen).fill();
 
+    // 1. Institution Name (Amharic)
     doc.fillColor(forestGreen).font(ethFont(true)).fontSize(31)
-       .text("ፋውንደርስ አካዳሚ", 150, 30, { align: "center", width: 630 });
+       .text("ክራፍቶፒያ የእደጥበብ ሙያዎች ማሰልጠኛ ተቋም", 150, 30, { align: "center", width: 630 });
 
+    // 3. Institution Name (English)
     doc.fillColor(forestGreen).font(latFont(true)).fontSize(25)
-       .text("FOUNDERS ACADEMY", 150, 65, { align: "center", width: 630 });
+       .text("CRAFTOPIA HANDCRAFTS SCHOOL", 150, 65, { align: "center", width: 630 });
 
+    // 4. Certificate Title (Amharic)
     doc.fillColor(forestGreen).font(ethFont(true)).fontSize(24)
        .text("የአጭር ጊዜ ስልጠና የምስክር ወረቀት", 150, 95, { align: "center", width: 630 });
 
+    // 5. Certificate Title (English)
     doc.fillColor(forestGreen).font(latFont(true)).fontSize(21)
        .text("CERTIFICATE OF SHORT TERM TRAINING", 150, 125, { align: "center", width: 630 });
 
+    // ── Divider Lines (Double vertical lines in gold) ──────────────────────
     doc.lineWidth(1).strokeColor(antiqueGold);
     doc.moveTo(417.5, 192).lineTo(417.5, 435).stroke();
     doc.lineWidth(2).strokeColor(antiqueGold);
     doc.moveTo(421.5, 192).lineTo(421.5, 435).stroke();
 
-    const programAm  = settings.cert_program_am  || "ስልጠና";
+    // Settings variables
+    const programAm  = settings.cert_program_am  || "እደጥበብ";
     const programEn  = settings.cert_program_en  || "Hand Craft & Art";
     const durationAm = settings.cert_duration_am || "4";
     const durationEn = settings.cert_duration_en || "4";
 
+    // ── SECTION 3: Main Body Text (Left-Side Column) ──────────────────────
     const lx = 65, lw = 320;
+    // Line 1: ለ ________ (Name)
     doc.fillColor(forestGreen).font(ethFont(false)).fontSize(12).text("ለ", lx + 20, 212);
     doc.fillColor(forestGreen).font(autoFont(name, true)).fontSize(13)
        .text(name, lx + 40, 208, { width: lw - 40, align: "center" });
     doc.moveTo(lx + 35, 224).lineTo(lx + lw, 224).strokeColor(forestGreen).lineWidth(1).stroke();
 
-    doc.fillColor(forestGreen).font(ethFont(false)).fontSize(11).text("በፋውንደርስ አካዳሚ", lx, 246);
+    // Line 2: በክራፍቶፒያ የእደጥበብ ማሰልጠኛ ተቋም _____
+    doc.fillColor(forestGreen).font(ethFont(false)).fontSize(11).text("በክራፍቶፒያ የእደጥበብ ማሰልጠኛ ተቋም", lx, 246);
     doc.moveTo(lx + 215, 258).lineTo(lx + lw, 258).strokeColor(forestGreen).lineWidth(1).stroke();
     doc.fillColor(forestGreen).font(autoFont(durationAm, true)).fontSize(11)
        .text(durationAm, lx + 215, 244, { width: lw - 215, align: "center" });
 
+    // Line 3: ሳምንት ለተሰጠው የ _____
     doc.fillColor(forestGreen).font(ethFont(false)).fontSize(11).text("ሳምንት ለተሰጠው የ", lx, 281);
     doc.moveTo(lx + 105, 293).lineTo(lx + lw, 293).strokeColor(forestGreen).lineWidth(1).stroke();
     doc.fillColor(forestGreen).font(autoFont(programAm, true)).fontSize(11)
        .text(programAm, lx + 105, 279, { width: lw - 105, align: "center" });
 
+    // Line 4: ሙያ ስልጠና ተከታትለው ስላጠናቀቁ ይህ የምስክር ወረቀት ተሰጥቷቸዋል፡፡
     doc.fillColor(forestGreen).font(ethFont(false)).fontSize(11)
        .text("ሙያ ስልጠና ተከታትለው ስላጠናቀቁ ይህ የምስክር ወረቀት ተሰጥቷቸዋል፡፡", lx, 316, { width: lw, align: "justify", lineGap: 6 });
 
+    // ── SECTION 4: Main Body Text (Right-Side Column) ─────────────────────
     const rx = 455, rw = 320;
+    // Line 1: To ________ (Name)
     doc.fillColor(forestGreen).font(latFont(false)).fontSize(12).text("To", rx, 212);
     doc.fillColor(forestGreen).font(autoFont(actualName2, true)).fontSize(13)
        .text(actualName2, rx + 25, 208, { width: rw - 25, align: "center" });
     doc.moveTo(rx + 20, 224).lineTo(rx + rw, 224).strokeColor(forestGreen).lineWidth(1).stroke();
 
+    // Line 2 & 3: THIS CERTIFICATE IS PROUDLY PRESENTED FOR / SUCCESSFULLY COMPLETING A SHORT-TERM TRAINING
     doc.fillColor(forestGreen).font(latFont(false)).fontSize(10.5)
        .text("THIS CERTIFICATE IS PROUDLY PRESENTED FOR", rx, 246);
     doc.text("SUCCESSFULLY COMPLETING A SHORT-TERM TRAINING", rx, 268);
 
+    // Line 4: PROGRAM IN _______
     doc.text("PROGRAM IN", rx, 290);
     doc.moveTo(rx + 75, 302).lineTo(rx + rw, 302).strokeColor(forestGreen).lineWidth(1).stroke();
     doc.fillColor(forestGreen).font(autoFont(programEn, true)).fontSize(10.5)
        .text(programEn.toUpperCase(), rx + 75, 288, { width: rw - 75, align: "center" });
 
-    doc.fillColor(forestGreen).font(latFont(false)).fontSize(10.5).text("AT FOUNDERS ACADEMY.", rx, 314);
+    // Line 5: AT CRAFTOPIA.
+    doc.fillColor(forestGreen).font(latFont(false)).fontSize(10.5).text("AT CRAFTOPIA.", rx, 314);
 
+    // Line 6: THE TRAINING WAS CONDUCTED FOR _____ WEEK.
     doc.text("THE TRAINING WAS CONDUCTED FOR", rx, 336);
     doc.moveTo(rx + 195, 348).lineTo(rx + 270, 348).strokeColor(forestGreen).lineWidth(1).stroke();
     doc.fillColor(forestGreen).font(autoFont(durationEn, true)).fontSize(10.5)
        .text(durationEn, rx + 195, 334, { width: 75, align: "center" });
     doc.fillColor(forestGreen).font(latFont(false)).text("WEEK.", rx + 275, 336);
 
+    // ── SECTION 5: Signature and Date Fields ──────────────────────────────
+    // Left Side (Amharic Footer)
+    // Small gold circular/abstract sigil or symbol positioned to the left of "ቀን"
     doc.circle(lx + 10, 467, 3).fillColor(antiqueGold).fill();
     doc.circle(lx + 10, 467, 1.5).fillColor("#ffffff").fill();
     
+    // "ቀን:" label
     doc.fillColor(forestGreen).font(ethFont(false)).fontSize(11).text("ቀን:", lx + 22, 461);
     
+    // Gold dashed line for Ethiopian Date
     doc.save();
     doc.strokeColor(antiqueGold).lineWidth(1).dash(3, { space: 3 });
     doc.moveTo(lx + 50, 473).lineTo(lx + 200, 473).stroke();
     doc.restore();
     
+    // "ዓ.ም" label
     doc.fillColor(forestGreen).font(ethFont(false)).fontSize(11).text("ዓ.ም", lx + 205, 461);
+    // Dynamic Date value
     const ethFinishDate = gregorianToEthiopianString(finishDate);
     doc.fillColor(forestGreen).font(autoFont(ethFinishDate, true)).fontSize(11)
        .text(ethFinishDate, lx + 50, 458, { width: 150, align: "center" });
 
+    // Right Side (English Footer)
+    // A small gold decorative sigil matching the stylized "spark" from the logo in the center
     const sigilX = rx + 160, sigilY = 405;
     doc.save();
     doc.translate(sigilX, sigilY);
     doc.moveTo(0, -6).lineTo(2, -2).lineTo(6, -2).lineTo(3, 1).lineTo(5, 5).lineTo(0, 2).lineTo(-5, 5).lineTo(-3, 1).lineTo(-6, -2).lineTo(-2, -2).closePath().fillColor(antiqueGold).fill();
     doc.restore();
 
+    // SIGNED line
     doc.fillColor(forestGreen).font(latFont(true)).fontSize(9).text("SIGNED:", rx, 461);
     doc.moveTo(rx + 45, 473).lineTo(rx + 180, 473).strokeColor(forestGreen).lineWidth(1).stroke();
     if (settings.signature_base64) {
@@ -598,6 +633,7 @@ async function generateCertificatePdf(name: string, regDate: string, finishDate:
       }
     }
 
+    // DATE line
     doc.fillColor(forestGreen).font(latFont(true)).fontSize(9).text("DATE:", rx + 195, 461);
     doc.moveTo(rx + 228, 473).lineTo(rx + rw, 473).strokeColor(forestGreen).lineWidth(1).stroke();
     doc.fillColor(forestGreen).font(autoFont(finishDate, true)).fontSize(9)
@@ -607,16 +643,6 @@ async function generateCertificatePdf(name: string, regDate: string, finishDate:
   });
 }
 
-let BOT_USERNAME: string | null = null;
-async function getBotUsername(): Promise<string> {
-  if (BOT_USERNAME) return BOT_USERNAME;
-  const res = await sendTelegramRequest("getMe", {});
-  if (res && res.ok && res.result && res.result.username) {
-    BOT_USERNAME = res.result.username;
-    return BOT_USERNAME;
-  }
-  return "foundersacademybot";
-}
 
 async function checkAndApplyReferralReward(referrerChatId: number) {
   if (!referrerChatId) return;
@@ -648,6 +674,7 @@ async function checkAndApplyReferralReward(referrerChatId: number) {
       const sDict = settings && settings.verification_code ? JSON.parse(settings.verification_code) : {};
       const channelId = sDict.telegram_channel_id || TELEGRAM_CHANNEL_ID || "-1003789578749";
 
+      // Unban user first in case they were previously banned/expired
       try {
         await sendTelegramRequest("unbanChatMember", {
           chat_id: channelId,
@@ -658,12 +685,14 @@ async function checkAndApplyReferralReward(referrerChatId: number) {
         console.error(`[Unban] Failed to unban referrer ${referrerReg.chat_id}:`, unbanErr.message);
       }
 
+      // Generate main channel invite link dynamically
       const inviteRes1 = await sendTelegramRequest("createChatInviteLink", {
         chat_id: channelId,
         member_limit: 1,
         name: `Free Referral Link for ${referrerReg.name || 'Student'}`
       });
 
+      // Generate private group invite link dynamically for group ID -1004377079119
       const inviteRes2 = await sendTelegramRequest("createChatInviteLink", {
         chat_id: "-1004377079119",
         member_limit: 1,
@@ -755,6 +784,7 @@ function base64UrlToBytes(b64url: string): Uint8Array {
   return bytes;
 }
 
+// Oak-like lightweight routing and request processing
 async function handleRequest(req: Request): Promise<Response> {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -815,6 +845,7 @@ async function handleRequest(req: Request): Promise<Response> {
           for (const r of regs) {
             const chatId = r.chat_id;
             
+            // Get or create quiz progress
             let { data: prog } = await supabase.from("user_quiz_progress").select("*").eq("chat_id", chatId).maybeSingle();
             if (!prog) {
               const { data: newProg } = await supabase.from("user_quiz_progress").insert({
@@ -827,6 +858,7 @@ async function handleRequest(req: Request): Promise<Response> {
             }
             
             if (prog && !prog.is_completed) {
+              // Calculate allowed day since registration
               const msDiff = Date.now() - new Date(r.created_at).getTime();
               const daysSinceReg = isTest1Min 
                 ? Math.floor(msDiff / (60 * 1000)) + 1 
@@ -836,10 +868,12 @@ async function handleRequest(req: Request): Promise<Response> {
               const day = prog.current_day || 1;
               const qIndex = prog.current_question_index || 0;
               
+              // Load questions for the current day
               const { data: questions } = await supabase.from("questions").select("*").eq("day_number", day).order("created_at", { ascending: true });
               const dayQuestions = questions || [];
               
               if (day < maxAllowedDay && qIndex >= dayQuestions.length) {
+                // A new day is unlocked! Advance to next day.
                 await supabase.from("user_quiz_progress").update({
                   current_day: day + 1,
                   current_question_index: 0,
@@ -847,6 +881,8 @@ async function handleRequest(req: Request): Promise<Response> {
                 }).eq("chat_id", chatId);
                 await sendNextQuizQuestion(chatId, isTest1Min);
               } else if (qIndex < dayQuestions.length) {
+                // User hasn't finished the questions of their current day.
+                // Send them a reminder (current question) only if it's been >= 24 hours since last_completed_at (or if last_completed_at is null)
                 const lastCompletedStr = prog.last_completed_at;
                 const limit = isTest1Min ? 60 * 1000 : 24 * 3600 * 1000;
                 const shouldSend = !lastCompletedStr || (Date.now() - new Date(lastCompletedStr).getTime() >= limit);
@@ -897,6 +933,8 @@ async function handleRequest(req: Request): Promise<Response> {
         const callbackQuery = update.callback_query;
         const callbackData = callbackQuery.data || "";
         const callbackQueryId = callbackQuery.id;
+        const adminChatId = callbackQuery.message.chat.id;
+        const adminMessageId = callbackQuery.message.message_id;
 
         if (callbackData.startsWith("approve:") || callbackData.startsWith("decline:")) {
           const isApprove = callbackData.startsWith("approve:");
@@ -921,6 +959,7 @@ async function handleRequest(req: Request): Promise<Response> {
             const sDict = settings && settings.verification_code ? JSON.parse(settings.verification_code) : {};
             const channelId = sDict.telegram_channel_id || TELEGRAM_CHANNEL_ID || "-1003789578749";
 
+            // Unban user first in case they were previously banned/expired
             try {
               await sendTelegramRequest("unbanChatMember", {
                 chat_id: channelId,
@@ -1052,6 +1091,7 @@ async function handleRequest(req: Request): Promise<Response> {
                 reply_markup: getMenuKeyboard(lang)
               });
             } else {
+              // Ask them standard steps
               if (currentStep === "awaiting_name") {
                 await sendTelegramRequest("sendMessage", { chat_id: chatId, text: getMsg(lang, "ask_name_am"), parse_mode: "Markdown", reply_markup: getMenuKeyboard(lang) });
               } else if (currentStep === "awaiting_name2") {
@@ -1230,7 +1270,7 @@ async function handleRequest(req: Request): Promise<Response> {
 
           const form = new FormData();
           form.append("chat_id", String(chatId));
-          form.append("caption", `🎓 **CERTIFICATE OF COMPLETION** 🎓\n\nThis certifies that **${name}** has successfully completed the Founders Academy Daily Sequence.\n\nWe are incredibly proud of your dedication. Well done!`);
+          form.append("caption", `🎓 **CERTIFICATE OF COMPLETION** 🎓\n\nThis certifies that **${name}** has successfully completed the Craftopia Daily Sequence.\n\nWe are incredibly proud of your dedication. Well done!`);
           form.append("parse_mode", "Markdown");
           
           const blob = new Blob([pdfBytes], { type: "application/pdf" });
@@ -1252,6 +1292,7 @@ async function handleRequest(req: Request): Promise<Response> {
       const text = (message.text || "").trim();
       const contact = message.contact;
 
+      // Admin linkage authentication interceptor
       if (text.toLowerCase().startsWith("/auth")) {
         const parts = text.split(/\s+/);
         if (parts.length === 4) {
@@ -1268,6 +1309,7 @@ async function handleRequest(req: Request): Promise<Response> {
               const now = new Date();
               const expiry = expiryStr ? new Date(expiryStr) : null;
               if (!expiry || now <= expiry) {
+                // Success! Link chat
                 await supabase.from("admins").update({ 
                   telegram_chat_id: chatId,
                   verification_code: null,
@@ -1321,7 +1363,7 @@ async function handleRequest(req: Request): Promise<Response> {
         if (now > expiry) {
           console.log(`[Expiration Trigger] User ${chatId} has expired. Expiry: ${reg.expires_at}`);
           await supabase.from("registrations").update({ status: "expired" }).eq("id", reg.id);
-          await removeUserFromChannel(chatId);
+          await kickUserFromChannel(chatId);
           const [lang] = getLangAndStep(reg);
           const msg = getMsg(lang, "access_expired_msg");
           await sendTelegramRequest("sendMessage", { chat_id: chatId, text: msg });
@@ -1337,8 +1379,7 @@ async function handleRequest(req: Request): Promise<Response> {
       }
 
       if (isMenuCommand(text, "menu_refer_friend") || text === "/refer") {
-        const botUsername = await getBotUsername();
-        const refLink = `https://t.me/${botUsername}?start=ref_${chatId}`;
+        const refLink = `https://t.me/CraftopiaBot?start=ref_${chatId}`;
         const msg = getMsg(lang, "referral_message").replace("{ref_link}", refLink);
         await sendTelegramRequest("sendMessage", { chat_id: chatId, text: msg, parse_mode: "Markdown", reply_markup: getMenuKeyboard(lang) });
         return new Response("OK", { headers: corsHeaders });
@@ -1617,6 +1658,7 @@ async function handleRequest(req: Request): Promise<Response> {
         return new Response(JSON.stringify({ error: "Method not allowed" }), { status: 405, headers: corsHeaders });
       }
 
+      // Check auth
       const authHeader = req.headers.get("authorization");
       if (!authHeader || !authHeader.startsWith("Bearer ")) {
         return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders });
@@ -1627,10 +1669,12 @@ async function handleRequest(req: Request): Promise<Response> {
         return new Response(JSON.stringify({ error: "Unauthorized / Invalid Token" }), { status: 401, headers: corsHeaders });
       }
 
+      // Get form data
       const formData = await req.formData();
       const text = formData.get("text") as string || "";
       const file = formData.get("file") as File | null;
 
+      // Fetch all registrations from database
       const { data: regs, error: dbErr } = await supabase.from("registrations").select("chat_id");
       if (dbErr) {
         return new Response(JSON.stringify({ error: `Database error: ${dbErr.message}` }), { status: 500, headers: corsHeaders });
@@ -1649,6 +1693,7 @@ async function handleRequest(req: Request): Promise<Response> {
         const mimetype = file.type;
         const isVideo = filename.endsWith(".mp4") || filename.endsWith(".mov") || filename.endsWith(".avi") || filename.endsWith(".mkv") || filename.endsWith(".gif") || mimetype.includes("video");
         
+        // Upload media to Supabase Storage
         const fileBytes = new Uint8Array(await file.arrayBuffer());
         const fileName = `broadcast_${Date.now()}_${file.name.toLowerCase().replace(/[^a-z0-9.]/g, "_")}`;
         const uploadUrl = `${SUPABASE_URL}/storage/v1/object/receipts/${fileName}`;

@@ -3,7 +3,7 @@
 -- =============================================================================
 -- HOW TO USE:
 --   1. Open Supabase SQL Editor:
---      https://supabase.com/dashboard/project/acnaidlegwkqcjxbdwra/sql
+--      https://supabase.com/dashboard/project/yrelqbvkxwdkzaraydfz/sql
 --   2. Paste this entire script and click "Run"
 --
 -- WHAT IT DOES:
@@ -32,10 +32,10 @@ SELECT cron.schedule(
   '* * * * *',   -- every minute
   $$
     SELECT net.http_post(
-      url     := 'https://acnaidlegwkqcjxbdwra.supabase.co/functions/v1/api/cron/send_daily_quiz',
+      url     := 'https://yrelqbvkxwdkzaraydfz.supabase.co/functions/v1/api/cron/send_daily_quiz',
       headers := jsonb_build_object(
         'Content-Type',  'application/json',
-        'Authorization', 'Bearer sb_publishable_pmI9gZu_QwYfq896kFMjUw_GmQe_HPn'
+        'Authorization', 'Bearer sb_publishable_ZIfc-LO2UBt8CPVdY-WUgQ_U_WGF8T3'
       ),
       body    := '{}'::jsonb
     );

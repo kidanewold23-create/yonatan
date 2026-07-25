@@ -1,4 +1,5 @@
-project_id = "acnaidlegwkqcjxbdwra"
+[project]
+id = "pgnxsgysnvrgsbuecesc"
 
 [functions.api]
 verify_jwt = false

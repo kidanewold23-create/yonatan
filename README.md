@@ -1,6 +1,6 @@
-# Founders Academy Bot & Dashboard
+# Craftopia Bot & Dashboard
 
-This repository contains the backend and frontend for the Founders Academy project, including a Telegram bot integrations, registration system, admin dashboard, and database connection.
+This repository contains the backend and frontend for the Craftopia project, including a Telegram bot integrations, registration system, admin dashboard, and database connection.
 
 The application is fully configured for deployment on **Vercel** as a Serverless Python and HTML application.
 

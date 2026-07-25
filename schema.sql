@@ -1,4 +1,4 @@
--- Founders Academy Registrations Schema (Updated with Admin Table)
+-- Craftopia Registrations Schema (Updated with Admin Table)
 -- Copy and paste this script into your Supabase SQL Editor (https://supabase.com/dashboard/project/pgnxsgysnvrgsbuecesc/sql) and click "Run".
 
 -- 1. Create the registrations table (or update it if it already exists)
@@ -72,8 +72,6 @@ CREATE TABLE IF NOT EXISTS translations (
 -- 8. Seed default languages
 INSERT INTO languages (code, name) VALUES ('en', 'English') ON CONFLICT (code) DO NOTHING;
 INSERT INTO languages (code, name) VALUES ('am', 'አማርኛ') ON CONFLICT (code) DO NOTHING;
-INSERT INTO languages (code, name) VALUES ('om', 'Afaan Oromoo') ON CONFLICT (code) DO NOTHING;
-INSERT INTO languages (code, name) VALUES ('ti', 'ትግርኛ') ON CONFLICT (code) DO NOTHING;
 
 -- Disable RLS on the new tables to allow REST API access
 ALTER TABLE languages DISABLE ROW LEVEL SECURITY;

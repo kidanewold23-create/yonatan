@@ -17,12 +17,12 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 // Multer is lazy-loaded in the route that needs it
 const BASE_DIR = path.join(__dirname, '..');
-const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN || process.env.TELEGRAM_TOKEN || "8906068445:AAGc5L08H9a1Lc0oYIDL9o4ZqjJbLVMII4Y";
+const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN || process.env.TELEGRAM_TOKEN || "8864741035:AAF5BMri8NIWEhJfwUq7DGmkiwQ86zB5o8o";
 const TELEGRAM_CHANNEL_ID = process.env.TELEGRAM_CHANNEL_ID;
 const ADMIN_CHAT_ID = process.env.ADMIN_CHAT_ID;
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "admin";
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
-const JWT_SECRET = process.env.JWT_SECRET || "super-secret-founders-academy-token-key-12345!";
+const JWT_SECRET = process.env.JWT_SECRET || "super-secret-craftopia-token-key-12345!";
 const SUPABASE_URL = (process.env.SUPABASE_URL || "https://pgnxsgysnvrgsbuecesc.supabase.co").replace(/\/$/, "");
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || (process.env.SUPABASE_KEY && process.env.SUPABASE_KEY !== "sb_publishable_GhwTyM1ilJr0M2VbusxDPQ_5wA9LycM" ? process.env.SUPABASE_KEY : "sb_publishable_i1qSlBg5OBbnLpSHuDN4UA_bH6bWAVQ");
 
@@ -154,7 +154,7 @@ async function getBotUsername() {
         BOT_USERNAME = res.result.username;
         return BOT_USERNAME;
     }
-    return "FoundersAcademyBot";
+    return "CraftopiaBot";
 }
 
 async function setupBotCommands() {
@@ -586,7 +586,7 @@ async function generateCertificatePdf(name, regDate, finishDate, name2) {
     if (fs.existsSync(logoPath)) {
         logoBase64 = "data:image/png;base64," + fs.readFileSync(logoPath, 'base64');
     }
-    html = html.replace('C:\\Users\\Administrator\\Desktop\\Projects\\yonatan\\IMG_0892.PNG', logoBase64);
+    html = html.replace('C:\\Users\\Administrator\\Desktop\\Projects\\craftopia\\IMG_0892.PNG', logoBase64);
 
     const printStyles = `
         <style>
@@ -605,7 +605,7 @@ async function generateCertificatePdf(name, regDate, finishDate, name2) {
     html = html.replace('<div class="fill-blank-line" style="width: 90%; margin-left: 10px;"></div>', `<div class="fill-blank-line" style="width: 90%; margin-left: 10px; text-align: center; font-weight: bold; font-size: 16px;">${actualName2}</div>`);
     html = html.replace('<div class="dotted-blank-line" style="width: 95px;"></div>', `<div class="dotted-blank-line" style="width: 95px; text-align: center; font-weight: bold;">${durationAm}</div>`);
     html = html.replace('<div class="dotted-blank-line" style="width: 185px;"></div>', `<div class="dotted-blank-line" style="width: 185px; text-align: center; font-weight: bold;">${programAm}</div>`);
-    html = html.replace('PROGRAM IN<div class="dotted-blank-line" style="width: 200px;"></div> AT FOUNDERS ACADEMY.', `PROGRAM IN <div class="dotted-blank-line" style="width: 200px; text-align: center; font-weight: bold;">${programEn}</div> AT FOUNDERS ACADEMY.`);
+    html = html.replace('PROGRAM IN<div class="dotted-blank-line" style="width: 200px;"></div> AT CRAFTOPIA.', `PROGRAM IN <div class="dotted-blank-line" style="width: 200px; text-align: center; font-weight: bold;">${programEn}</div> AT CRAFTOPIA.`);
     html = html.replace('THE TRAINING WAS CONDUCTED FOR<div class="dotted-blank-line" style="width: 95px;"></div>WEEK.', `THE TRAINING WAS CONDUCTED FOR <div class="dotted-blank-line" style="width: 95px; text-align: center; font-weight: bold;">${durationEn}</div> WEEK.`);
     const ethFinishDate = gregorianToEthiopianString(finishDate);
     html = html.replace('ቀን <div class="dotted-blank-line" style="width: 165px;"></div> ዓ.ም', `ቀን <div class="dotted-blank-line" style="width: 165px; text-align: center; font-weight: bold;">${ethFinishDate}</div> ዓ.ም`);
@@ -1452,7 +1452,7 @@ app.post('/api/languages', requireAuth, async (req, res) => {
 });
 
 // Proxy for Telegram photos
-app.get(/\/api\/admin\/photo\/(.*)/, requireAuth, async (req, res) => {
+app.get('/api/admin/photo/*', requireAuth, async (req, res) => {
     try {
         const fileId = req.params[0];
         
@@ -1501,7 +1501,7 @@ app.post('/api/translations', requireAuth, async (req, res) => {
 // Schema migration runner
 app.all('/api/admin/migrate', async (req, res) => {
     const secret = req.query.secret;
-    if (secret !== "super-secret-founders-academy-token-key-12345!") {
+    if (secret !== "super-secret-craftopia-token-key-12345!") {
         return res.status(401).json({ error: "Unauthorized" });
     }
         
@@ -1577,8 +1577,52 @@ app.all('/api/admin/migrate', async (req, res) => {
         }
         
         await loadDbTranslations();
+
+        // --- Supabase Cron Job Setup ---
+        // Enable pg_cron and pg_net extensions (safe, idempotent)
+        let cronStatus = "skipped";
+        try {
+            await client.query("CREATE EXTENSION IF NOT EXISTS pg_cron;");
+            await client.query("CREATE EXTENSION IF NOT EXISTS pg_net;");
+
+            // Remove existing job if present
+            await client.query(`
+                DO $$
+                BEGIN
+                    IF EXISTS (SELECT 1 FROM cron.job WHERE jobname = 'craftopia-send-daily-quiz') THEN
+                        PERFORM cron.unschedule('craftopia-send-daily-quiz');
+                    END IF;
+                END $$;
+            `);
+
+            // Schedule cron to run every minute
+            // The Edge Function throttles sends to 24h via last_completed_at
+            const supabaseAnonKey = process.env.SUPABASE_KEY || "sb_publishable_i1qSlBg5OBbnLpSHuDN4UA_bH6bWAVQ";
+            const supabaseProjectUrl = (process.env.SUPABASE_URL || "https://pgnxsgysnvrgsbuecesc.supabase.co").replace(/\/$/, "");
+            await client.query(`
+                SELECT cron.schedule(
+                    'craftopia-send-daily-quiz',
+                    '* * * * *',
+                    $$
+                        SELECT net.http_post(
+                            url     := '${supabaseProjectUrl}/functions/v1/api/cron/send_daily_quiz',
+                            headers := jsonb_build_object(
+                                'Content-Type',  'application/json',
+                                'Authorization', 'Bearer ${supabaseAnonKey}'
+                            ),
+                            body    := '{}'::jsonb
+                        );
+                    $$
+                );
+            `);
+            cronStatus = "scheduled";
+        } catch (cronErr) {
+            // pg_cron may not be available on all Supabase plans
+            console.warn("[Migrate] pg_cron setup skipped:", cronErr.message);
+            cronStatus = "unavailable (run schema_cron.sql manually in Supabase SQL Editor)";
+        }
         
-        return res.json({ success: true, message: "Migration completed successfully!" });
+        return res.json({ success: true, message: "Migration completed successfully!", cronJob: cronStatus });
     } catch (e) {
         return res.status(500).json({ success: false, error: e.message });
     } finally {
@@ -1596,7 +1640,8 @@ app.all('/api/cron/send_daily_quiz', async (req, res) => {
         
     try {
         console.log("[Cron Proxy] Forwarding cron trigger to Deno Edge Function...");
-        const response = await axios.post("https://pgnxsgysnvrgsbuecesc.supabase.co/functions/v1/api/cron/send_daily_quiz", {}, {
+        const queryParams = new URL(req.url, `http://${req.headers.host || 'localhost'}`).search;
+        const response = await axios.post(`https://pgnxsgysnvrgsbuecesc.supabase.co/functions/v1/api/cron/send_daily_quiz${queryParams}`, {}, {
             headers: {
                 "Authorization": `Bearer ${process.env.SUPABASE_KEY || ""}`
             },
@@ -1856,15 +1901,15 @@ app.post('/api/bot', async (req, res) => {
                         const amount = settings.amount || "500";
                         let msg;
                         if (currentStep.includes("telebirr")) {
-                            const accName = settings.telebirr_name || "Founders Academy";
+                            const accName = settings.telebirr_name || "Craftopia School";
                             const accNum = settings.telebirr_number || "0911223344";
                             msg = getMsg(lang, "telebirr_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                         } else if (currentStep.includes("abyssinia")) {
-                            const accName = settings.abyssinia_name || "Founders Academy";
+                            const accName = settings.abyssinia_name || "Craftopia BoA";
                             const accNum = settings.abyssinia_number || "987654321";
                             msg = getMsg(lang, "abyssinia_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                         } else {
-                            const accName = settings.cbe_name || "Founders Academy";
+                            const accName = settings.cbe_name || "Craftopia Hand Craft";
                             const accNum = settings.cbe_number || "1000123456789";
                             msg = getMsg(lang, "cbe_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                         }
@@ -2120,17 +2165,17 @@ app.post('/api/bot', async (req, res) => {
                 
                 let msg;
                 if (callbackData === "pay_telebirr") {
-                    const accName = settings.telebirr_name || "Founders Academy";
+                    const accName = settings.telebirr_name || "Craftopia School";
                     const accNum = settings.telebirr_number || "0911223344";
                     msg = getMsg(lang, "telebirr_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                     await db.upsertRegistration(chatId, { step: buildStep(lang, "awaiting_receipt_telebirr") });
                 } else if (callbackData === "pay_abyssinia") {
-                    const accName = settings.abyssinia_name || "Founders Academy";
+                    const accName = settings.abyssinia_name || "Craftopia BoA";
                     const accNum = settings.abyssinia_number || "987654321";
                     msg = getMsg(lang, "abyssinia_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                     await db.upsertRegistration(chatId, { step: buildStep(lang, "awaiting_receipt_abyssinia") });
                 } else {
-                    const accName = settings.cbe_name || "Founders Academy";
+                    const accName = settings.cbe_name || "Craftopia Hand Craft";
                     const accNum = settings.cbe_number || "1000123456789";
                     msg = getMsg(lang, "cbe_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                     await db.upsertRegistration(chatId, { step: buildStep(lang, "awaiting_receipt_cbe") });
@@ -2876,7 +2921,7 @@ app.get('/api/certificate', async (req, res) => {
     if (fs.existsSync(logoPath)) {
         logoBase64 = "data:image/png;base64," + fs.readFileSync(logoPath, 'base64');
     }
-    html = html.replace('C:\\Users\\Administrator\\Desktop\\Projects\\yonatan\\IMG_0892.PNG', logoBase64);
+    html = html.replace('C:\\Users\\Administrator\\Desktop\\Projects\\craftopia\\IMG_0892.PNG', logoBase64);
 
     html = html.replace(
         '<div class="fill-blank-line" style="width: 88%; margin-left: 10px;"></div>',
@@ -2895,8 +2940,8 @@ app.get('/api/certificate', async (req, res) => {
         `<div class="dotted-blank-line" style="width: 185px; text-align: center; font-weight: bold;">${programAm}</div>`
     );
     html = html.replace(
-        'PROGRAM IN<div class="dotted-blank-line" style="width: 200px;"></div> AT FOUNDERS ACADEMY.',
-        `PROGRAM IN <div class="dotted-blank-line" style="width: 200px; text-align: center; font-weight: bold;">${programEn}</div> AT FOUNDERS ACADEMY.`
+        'PROGRAM IN<div class="dotted-blank-line" style="width: 200px;"></div> AT CRAFTOPIA.',
+        `PROGRAM IN <div class="dotted-blank-line" style="width: 200px; text-align: center; font-weight: bold;">${programEn}</div> AT CRAFTOPIA.`
     );
     html = html.replace(
         'THE TRAINING WAS CONDUCTED FOR<div class="dotted-blank-line" style="width: 95px;"></div>WEEK.',
@@ -2933,7 +2978,7 @@ app.get('/api/certificate', async (req, res) => {
             const element = document.querySelector('.certificate-canvas');
             const opt = {
                 margin: 0,
-                filename: 'Founders_Academy_Certificate_${name.replace(/\\s+/g, '_')}.pdf',
+                filename: 'Craftopia_Certificate_${name.replace(/\\s+/g, '_')}.pdf',
                 image: { type: 'jpeg', quality: 1 },
                 html2canvas: { scale: 2, useCORS: true },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
@@ -2950,7 +2995,7 @@ app.get('/api/certificate', async (req, res) => {
     res.send(html);
 });
 
-app.get(/(.*)/, (req, res) => {
+app.get('*', (req, res) => {
     const p = path.join(BASE_DIR, 'public', 'index.html');
     res.sendFile(p, (err) => {
         if (err && !res.headersSent) {

@@ -1,7 +1,7 @@
 {
-  "name": "founders-academy",
+  "name": "craftopia",
   "version": "1.0.0",
-  "description": "This repository contains the backend and frontend for the Founders Academy project, including a Telegram bot integration, registration system, admin dashboard, and database connection.",
+  "description": "This repository contains the backend and frontend for the Craftopia project, including a Telegram bot integrations, registration system, admin dashboard, and database connection.",
   "main": "temp_test.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
