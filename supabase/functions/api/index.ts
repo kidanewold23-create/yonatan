@@ -10,7 +10,7 @@ const TELEGRAM_CHANNEL_ID = Deno.env.get("TELEGRAM_CHANNEL_ID") || "";
 const ADMIN_CHAT_ID = Deno.env.get("ADMIN_CHAT_ID") || "";
 const ADMIN_USERNAME = Deno.env.get("ADMIN_USERNAME") || "admin";
 const ADMIN_PASSWORD = Deno.env.get("ADMIN_PASSWORD") || "admin123";
-const JWT_SECRET = Deno.env.get("JWT_SECRET") || "super-secret-craftopia-token-key-12345!";
+const JWT_SECRET = Deno.env.get("JWT_SECRET") || "super-secret-founders-academy-token-key-12345!";
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
@@ -23,7 +23,7 @@ const corsHeaders = {
 // Static Messages fallback
 const STATIC_MESSAGES = {
   "en": {
-    "welcome_choose_lang": "🇬🇧 Welcome to Craftopia Hand Craft School Registration Bot!\nPlease select your preferred language below:",
+    "welcome_choose_lang": "🇬🇧 Welcome to Founders Academy Registration Bot!\nPlease select your preferred language below:",
     "ask_name": "📝 Please enter your full name:",
     "ask_name_am": "📝 Please enter your **Full Name in Amharic** (e.g. አበበ በሶ):",
     "ask_name_en": "📝 Please enter your **Full Name in English** (e.g. Abebe Beso):",
@@ -53,7 +53,7 @@ const STATIC_MESSAGES = {
     "referral_message": "👥 **Refer and Earn!**\n\nShare your link with friends. When they register and get approved, you get credit!\n\n🔗 **Your referral link**:\n{ref_link}",
     "ready_new_receipt": "Ready to submit a new receipt? Please select payment method below:",
     "payment_saved": "✅ Payment method saved!",
-    "help_instructions": "ℹ️ **Craftopia Bot Help**\n\n- Use /start to begin registration.\n- Use the menu buttons to submit receipts, refer friends, check status, or change language.",
+    "help_instructions": "ℹ️ **Founders Academy Bot Help**\n\n- Use /start to begin registration.\n- Use the menu buttons to submit receipts, refer friends, check status, or change language.",
     "already_registered": "You have already registered. Please use the menu below to check your status or refer friends.",
     "status_approved_msg": "🎉 **Your registration is approved!**\nReceipt: `{receipt}`\n\n🔗 Join our Private Channel here:\n{link}",
     "status_declined_msg": "❌ **Your registration was declined.**\nReceipt: `{receipt}`\n\n⚠️ **Reason**: {reason}",
@@ -65,7 +65,7 @@ const STATIC_MESSAGES = {
     "welcome_name_prefix": "Hello {name}! ",
     "receipt_approved_msg": "🎉 **Receipt Verification Approved!**\n\nHello **{name}**, your receipt `{receipt}` has been verified successfully. You are now approved to join our premium private channel!\n\n🔗 **Your One-time Invite Link**:\n{link}\n\n*Note: This link is unique and can only be used by one person.*",
     "receipt_declined_msg": "❌ **Receipt Verification Declined**\n\nHello **{name}**, we are sorry, but your receipt `{receipt}` has been declined.\n\n⚠️ **Reason**: {reason}",
-    "referral_reward_msg": "🎁 **Congratulations! You referred 3 friends successfully!**\n\nHello **{name}**, because you have referred 3 friends, you got the Craftopia course for free! You are now approved to join our premium private channel!\n\n🔗 **Your One-time Invite Link**:\n{link}\n\n*Note: This link is unique and can only be used by one person.*",
+    "referral_reward_msg": "🎁 **Congratulations! You referred 3 friends successfully!**\n\nHello **{name}**, because you have referred 3 friends, you got the Founders Academy course for free! You are now approved to join our premium private channel!\n\n🔗 **Your One-time Invite Link**:\n{link}\n\n*Note: This link is unique and can only be used by one person.*",
     "quiz_not_completed": "⚠️ **Quiz Not Completed**\n\nYou must complete all daily quizzes to get a certificate of completion."
   },
   "am": {
@@ -111,7 +111,7 @@ const STATIC_MESSAGES = {
     "welcome_name_prefix": "ሰላም {name}! ",
     "receipt_approved_msg": "🎉 **የደረሰኝ ማረጋገጫ ጸድቋል!**\n\nሰላም **{name}**፣ የደረሰኝ ቁጥርዎ `{receipt}` በተሳካ ሁኔታ ተረጋግጧል። አሁን የእኛን ፕሪሚየም የግል ቻናል ለመቀላቀል ፈቃድ አግኝተዋል!\n\n🔗 **የአንድ ጊዜ መጋበዣ ሊንክዎ**:\n{link}\n\n*ማስታወሻ: ይህ ሊንክ ልዩ ነው እና በአንድ ሰው ብቻ ነው ጥቅም ላይ ሊውል የሚችለው።*",
     "receipt_declined_msg": "❌ **የደረሰኝ ማረጋገጫ ተቀባይነት አላገኘም**\n\nሰላም **{name}**፣ የደረሰኝ ቁጥርዎ `{receipt}` ውድቅ ተደርጓል።\n\n⚠️ **ምክንያት**: {reason}",
-    "referral_reward_msg": "🎁 **እንኳን ደስ አሰኞት! 3 ጓደኞችን በተሳካ ሁኔታ ጋብዘዋል!**\n\nሰላም **{name}**፣ 3 ሰዎችን ስለጋበዙ የCraftopia ኮርሱን በነጻ አግኝተዋል! አሁን የእኛን ፕሪሚየም የግል ቻናል ለመቀላቀል ፈቃድ አግኝተዋል!\n\n🔗 **የአንድ ጊዜ መጋበዣ ሊንክዎ**:\n{link}\n\n*ማስታወሻ: ይህ ሊንክ ልዩ ነው እና በአንድ ሰው ብቻ ነው ጥቅም ላይ ሊውል የሚችለው።*",
+    "referral_reward_msg": "🎁 **እንኳን ደስ አሰኞት! 3 ጓደኞችን በተሳካ ሁኔታ ጋብዘዋል!**\n\nሰላም **{name}**፣ 3 ሰዎችን ስለጋበዙ የፋውንደርስ አካዳሚ ኮርሱን በነጻ አግኝተዋል! አሁን የእኛን ፕሪሚየም የግል ቻናል ለመቀላቀል ፈቃድ አግኝተዋል!\n\n🔗 **የአንድ ጊዜ መጋበዣ ሊንክዎ**:\n{link}\n\n*ማስታወሻ: ይህ ሊንክ ልዩ ነው እና በአንድ ሰው ብቻ ነው ጥቅም ላይ ሊውል የሚችለው።*",
     "quiz_not_completed": "⚠️ **ጥያቄዎች አልተጠናቀቁም**\n\nየማጠናቀቂያ ሰርተፊኬት ለማግኘት ሁሉንም ዕለታዊ ጥያቄዎች ማጠናቀቅ አለብዎት።"
   }
 };
@@ -505,7 +505,7 @@ async function generateCertificatePdf(name: string, regDate: string, finishDate:
 
     // 3. Institution Name (English)
     doc.fillColor(forestGreen).font(latFont(true)).fontSize(25)
-       .text("CRAFTOPIA HANDCRAFTS SCHOOL", 150, 65, { align: "center", width: 630 });
+       .text("FOUNDERS ACADEMY", 150, 65, { align: "center", width: 630 });
 
     // 4. Certificate Title (Amharic)
     doc.fillColor(forestGreen).font(ethFont(true)).fontSize(24)
@@ -570,8 +570,8 @@ async function generateCertificatePdf(name: string, regDate: string, finishDate:
     doc.fillColor(forestGreen).font(autoFont(programEn, true)).fontSize(10.5)
        .text(programEn.toUpperCase(), rx + 75, 288, { width: rw - 75, align: "center" });
 
-    // Line 5: AT CRAFTOPIA.
-    doc.fillColor(forestGreen).font(latFont(false)).fontSize(10.5).text("AT CRAFTOPIA.", rx, 314);
+    // Line 5: AT FOUNDERS ACADEMY.
+    doc.fillColor(forestGreen).font(latFont(false)).fontSize(10.5).text("AT FOUNDERS ACADEMY.", rx, 314);
 
     // Line 6: THE TRAINING WAS CONDUCTED FOR _____ WEEK.
     doc.text("THE TRAINING WAS CONDUCTED FOR", rx, 336);
@@ -1270,7 +1270,7 @@ async function handleRequest(req: Request): Promise<Response> {
 
           const form = new FormData();
           form.append("chat_id", String(chatId));
-          form.append("caption", `🎓 **CERTIFICATE OF COMPLETION** 🎓\n\nThis certifies that **${name}** has successfully completed the Craftopia Daily Sequence.\n\nWe are incredibly proud of your dedication. Well done!`);
+          form.append("caption", `🎓 **CERTIFICATE OF COMPLETION** 🎓\n\nThis certifies that **${name}** has successfully completed the Founders Academy Daily Sequence.\n\nWe are incredibly proud of your dedication. Well done!`);
           form.append("parse_mode", "Markdown");
           
           const blob = new Blob([pdfBytes], { type: "application/pdf" });
@@ -1379,7 +1379,8 @@ async function handleRequest(req: Request): Promise<Response> {
       }
 
       if (isMenuCommand(text, "menu_refer_friend") || text === "/refer") {
-        const refLink = `https://t.me/CraftopiaBot?start=ref_${chatId}`;
+        const botUsername = await getBotUsername();
+        const refLink = `https://t.me/${botUsername}?start=ref_${chatId}`;
         const msg = getMsg(lang, "referral_message").replace("{ref_link}", refLink);
         await sendTelegramRequest("sendMessage", { chat_id: chatId, text: msg, parse_mode: "Markdown", reply_markup: getMenuKeyboard(lang) });
         return new Response("OK", { headers: corsHeaders });

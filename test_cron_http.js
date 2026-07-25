@@ -1,7 +1,7 @@
 const https = require('https');
 
-const url = 'https://acnaidlegwkqcjxbdwra.supabase.co/functions/v1/api/cron/send_daily_quiz';
-const anonKey = 'sb_publishable_pmI9gZu_QwYfq896kFMjUw_GmQe_HPn';
+const url = 'https://yrelqbvkxwdkzaraydfz.supabase.co/functions/v1/api/cron/send_daily_quiz';
+const anonKey = 'sb_publishable_ZIfc-LO2UBt8CPVdY-WUgQ_U_WGF8T3';
 
 function triggerCron() {
     console.log("Triggering Quiz Cron Job at:", url);

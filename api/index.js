@@ -22,7 +22,7 @@ const TELEGRAM_CHANNEL_ID = process.env.TELEGRAM_CHANNEL_ID;
 const ADMIN_CHAT_ID = process.env.ADMIN_CHAT_ID;
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "admin";
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "admin123";
-const JWT_SECRET = process.env.JWT_SECRET || "super-secret-craftopia-token-key-12345!";
+const JWT_SECRET = process.env.JWT_SECRET || "super-secret-founders-academy-token-key-12345!";
 const SUPABASE_URL = (process.env.SUPABASE_URL || "https://pgnxsgysnvrgsbuecesc.supabase.co").replace(/\/$/, "");
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || (process.env.SUPABASE_KEY && process.env.SUPABASE_KEY !== "sb_publishable_GhwTyM1ilJr0M2VbusxDPQ_5wA9LycM" ? process.env.SUPABASE_KEY : "sb_publishable_i1qSlBg5OBbnLpSHuDN4UA_bH6bWAVQ");
 
@@ -154,7 +154,7 @@ async function getBotUsername() {
         BOT_USERNAME = res.result.username;
         return BOT_USERNAME;
     }
-    return "CraftopiaBot";
+    return "foundersacademybot";
 }
 
 async function setupBotCommands() {
@@ -1501,7 +1501,7 @@ app.post('/api/translations', requireAuth, async (req, res) => {
 // Schema migration runner
 app.all('/api/admin/migrate', async (req, res) => {
     const secret = req.query.secret;
-    if (secret !== "super-secret-craftopia-token-key-12345!") {
+    if (secret !== "super-secret-founders-academy-token-key-12345!") {
         return res.status(401).json({ error: "Unauthorized" });
     }
         
@@ -1901,15 +1901,15 @@ app.post('/api/bot', async (req, res) => {
                         const amount = settings.amount || "500";
                         let msg;
                         if (currentStep.includes("telebirr")) {
-                            const accName = settings.telebirr_name || "Craftopia School";
-                            const accNum = settings.telebirr_number || "0911223344";
+                            const accName = settings.telebirr_name || "Founders Academy";
+                            const accNum = settings.telebirr_number || "";
                             msg = getMsg(lang, "telebirr_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                         } else if (currentStep.includes("abyssinia")) {
-                            const accName = settings.abyssinia_name || "Craftopia BoA";
-                            const accNum = settings.abyssinia_number || "987654321";
+                            const accName = settings.abyssinia_name || "Founders Academy";
+                            const accNum = settings.abyssinia_number || "";
                             msg = getMsg(lang, "abyssinia_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                         } else {
-                            const accName = settings.cbe_name || "Craftopia Hand Craft";
+                            const accName = settings.cbe_name || "Founders Academy";
                             const accNum = settings.cbe_number || "1000123456789";
                             msg = getMsg(lang, "cbe_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                         }
@@ -2165,17 +2165,17 @@ app.post('/api/bot', async (req, res) => {
                 
                 let msg;
                 if (callbackData === "pay_telebirr") {
-                    const accName = settings.telebirr_name || "Craftopia School";
-                    const accNum = settings.telebirr_number || "0911223344";
+                    const accName = settings.telebirr_name || "Founders Academy";
+                    const accNum = settings.telebirr_number || "";
                     msg = getMsg(lang, "telebirr_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                     await db.upsertRegistration(chatId, { step: buildStep(lang, "awaiting_receipt_telebirr") });
                 } else if (callbackData === "pay_abyssinia") {
-                    const accName = settings.abyssinia_name || "Craftopia BoA";
-                    const accNum = settings.abyssinia_number || "987654321";
+                    const accName = settings.abyssinia_name || "Founders Academy";
+                    const accNum = settings.abyssinia_number || "";
                     msg = getMsg(lang, "abyssinia_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                     await db.upsertRegistration(chatId, { step: buildStep(lang, "awaiting_receipt_abyssinia") });
                 } else {
-                    const accName = settings.cbe_name || "Craftopia Hand Craft";
+                    const accName = settings.cbe_name || "Founders Academy";
                     const accNum = settings.cbe_number || "1000123456789";
                     msg = getMsg(lang, "cbe_payment_instructions").replace("{amount}", amount).replace("{acc_name}", accName).replace("{acc_num}", accNum);
                     await db.upsertRegistration(chatId, { step: buildStep(lang, "awaiting_receipt_cbe") });
@@ -2978,7 +2978,7 @@ app.get('/api/certificate', async (req, res) => {
             const element = document.querySelector('.certificate-canvas');
             const opt = {
                 margin: 0,
-                filename: 'Craftopia_Certificate_${name.replace(/\\s+/g, '_')}.pdf',
+                filename: `Founders_Academy_Certificate_${name.replace(/\s+/g, '_')}.pdf`,
                 image: { type: 'jpeg', quality: 1 },
                 html2canvas: { scale: 2, useCORS: true },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }

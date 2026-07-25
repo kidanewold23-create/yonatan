@@ -1,4 +1,4 @@
--- Craftopia Registrations Schema (Updated with Admin Table)
+-- Founders Academy Registrations Schema (Updated with Admin Table)
 -- Copy and paste this script into your Supabase SQL Editor (https://supabase.com/dashboard/project/pgnxsgysnvrgsbuecesc/sql) and click "Run".
 
 -- 1. Create the registrations table (or update it if it already exists)
