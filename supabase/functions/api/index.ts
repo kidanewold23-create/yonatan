@@ -23,56 +23,53 @@ const corsHeaders = {
 // Static Messages fallback
 const STATIC_MESSAGES = {
   "en": {
-    "welcome_choose_lang": "🇬🇧 Welcome to Founders Academy! 🚀✨\nWe're so thrilled to have you here! 🎉\nPlease pick your favorite language below to begin your awesome journey: 👇💬",
-    "ask_name": "📝✨ Woohoo! Let's get to know you! What is your full name?",
-    "ask_name_am": "📝✨ Awesome! Please enter your **Full Name in Amharic** 🇪🇹 (e.g. አበበ በሶ):",
-    "ask_name_en": "📝🌟 Super cool! Now, please enter your **Full Name in English** 🇬🇧 (e.g. Abebe Beso):",
-    "invalid_name": "❌ Oopsie! Name cannot be empty. Please type your full name: 😊",
-    "ask_phone": "📞🥳 Yay! Almost there! Click the button below to share your phone number with us, or type it out: 📱👇",
-    "btn_share_contact": "Share Contact 📞✨",
-    "phone_saved": "✅ Woohoo! Phone number saved successfully! 🎉",
-    "duplicate_phone": "⚠️ Uh-oh! This phone number is already registered! Please use another phone number. 📱",
-    "invalid_phone": "❌ Oops! That doesn't look like a valid phone number. Give it another shot! 📱✨",
-    "ask_payment_method": "💳✨ Fantastic! How would you like to make your payment today? Pick your payment method below: 🏦📱👇",
-    "btn_telebirr": "Telebirr 📱✨",
-    "btn_cbe": "CBE Bank 🏦💎",
-    "btn_abyssinia": "Bank of Abyssinia 🏦✨",
-    "select_payment_method_first": "⚠️ Please choose one of the payment options above to continue your magic! ✨",
-    "telebirr_payment_instructions": "📱💥 **Telebirr Payment Magic!** ✨\n\n1. Pay **{amount} Birr** to:\n   - 👤 **Merchant Name**: {acc_name}\n   - 🔢 **Merchant Number**: `{acc_num}`\n\n2. Once done, upload a screenshot or type your Transaction ID below! 📸✨",
-    "cbe_payment_instructions": "🏦💎 **CBE Bank Transfer Magic!** ✨\n\n1. Transfer **{amount} Birr** to:\n   - 👤 **Account Name**: {acc_name}\n   - 🔢 **Account Number**: `{acc_num}`\n\n2. Once done, upload a screenshot or type your Transaction ID below! 📸✨",
-    "abyssinia_payment_instructions": "🏦✨ **Bank of Abyssinia Transfer Magic!** 🌟\n\n1. Transfer **{amount} Birr** to:\n   - 👤 **Account Name**: {acc_name}\n   - 🔢 **Account Number**: `{acc_num}`\n\n2. Once done, upload a screenshot or type your Transaction ID below! 📸✨",
-    "ask_receipt_number": "🧾📸 Please snap & send a photo of your receipt or type the receipt number below: 👇✨",
-    "registration_submitted": "🎉🥳 **BOOM! Registration Submitted!** 🚀✨\n\nThank you so much! Our team is reviewing your receipt right now. You'll get your VIP invite link very soon! Stay tuned! 🎈💖",
-    "menu_submit_receipt": "Submit Receipt 🧾✨",
-    "menu_check_status": "Check Status 🔍✨",
-    "menu_refer_friend": "Refer Friends 👥🎁",
-    "menu_change_language": "Change Language 🌐✨",
-    "menu_support": "Customer Support 💬",
-    "status_pending": "⏳✨ **Status: Verification in Progress!**\n\nOur superteam is verifying your receipt. Hold tight! 🚀",
-    "status_approved": "🎉✅ **Status: APPROVED & READY!**\n\nWoohoo! Check your invite link below to step into the VIP channel! 🌟",
-    "status_declined": "❌ **Status: Declined**\n\nNo worries! Please check the reason below & resubmit your receipt: ✨",
-    "no_receipt_yet": "🔍 You haven't submitted any receipt yet! Type /start to jump in! 🚀✨",
-    "already_pending": "⚠️ You already have a pending registration! Our team is on it! ⏳✨",
-    "referral_message": "👥🎁 **Refer Friends & Unlock VIP Rewards!** 🌟🚀\n\nShare the love! When your friends join using your unique link, you get free credits & exclusive perks! 🎉\n\n🔗 **Your Unique Referral Link**:\n{ref_link}\n\nSpread the word & let's grow together! 💪🔥",
-    "ready_new_receipt": "🚀 Ready to submit a new receipt? Pick your payment method below: 💳👇",
-    "payment_saved": "✅ Payment method saved! Ready for your receipt! 🧾✨",
-    "help_instructions": "ℹ️✨ **Founders Academy Guide** 🚀\n\n- Type /start to begin your fun journey!\n- Use the menu buttons below to submit receipts, refer friends, check status, or change language anytime! 💖",
-    "already_registered": "🎉 You're already registered! Use the menu buttons below to check status or refer friends! 🌟",
-    "status_approved_msg": "🎉🥳 **YOUR REGISTRATION IS APPROVED!** 🚀✨\n\nReceipt: `{receipt}`\n\n🔗 **Tap here to join our Private VIP Channel**:\n{link}\n\nWelcome to the family! 💖🔥",
-    "status_declined_msg": "❌ **Registration Declined**\n\nReceipt: `{receipt}`\n\n⚠️ **Reason**: {reason}\n\nFeel free to try submitting again! 💪✨",
-    "status_pending_msg": "⏳✨ **Your registration is pending review!**\n\nReceipt: `{receipt}`\n\nWe'll ping you the second it's verified! 🚀",
+    "welcome_choose_lang": "🇬🇧 Welcome to Founders Academy Registration Bot!\nPlease select your preferred language below:",
+    "ask_name": "📝 Please enter your full name:",
+    "ask_name_am": "📝 Please enter your **Full Name in Amharic** (e.g. አበበ በሶ):",
+    "ask_name_en": "📝 Please enter your **Full Name in English** (e.g. Abebe Beso):",
+    "invalid_name": "❌ Name cannot be empty. Please enter your name:",
+    "ask_phone": "📞 Please share your phone number using the button below or type it:",
+    "btn_share_contact": "Share Contact 📞",
+    "phone_saved": "✅ Phone number saved successfully!",
+    "duplicate_phone": "❌ This phone number is already registered. Please use another phone number.",
+    "invalid_phone": "❌ Invalid phone number. Please enter a valid number:",
+    "ask_payment_method": "💳 Please select your preferred payment method:",
+    "btn_telebirr": "Telebirr 📱",
+    "btn_cbe": "CBE 🏦",
+    "select_payment_method_first": "❌ Please select a payment method from the buttons above.",
+    "telebirr_payment_instructions": "📱 **Telebirr Payment Instructions**\n\n1. Pay **{amount} Birr** to:\n   - **Merchant Name**: {acc_name}\n   - **Merchant Number**: `{acc_num}`\n\n2. Once paid, please upload your receipt photo or type the Transaction ID below.",
+    "cbe_payment_instructions": "🏦 **CBE Bank Transfer Instructions**\n\n1. Transfer **{amount} Birr** to:\n   - **Account Name**: {acc_name}\n   - **Account Number**: `{acc_num}`\n\n2. Once transferred, please upload your receipt photo or type the Transaction ID below.",
+    "ask_receipt_number": "🧾 Please upload a photo of the receipt or type the receipt number:",
+    "registration_submitted": "🎉 **Registration Submitted Successfully!**\n\nWe are verifying your receipt. You will receive a notification here once approved. Thank you! 🙏",
+    "menu_submit_receipt": "Submit Receipt 🧾",
+    "menu_check_status": "Check Status 🔍",
+    "menu_refer_friend": "Refer Friends 👥",
+    "menu_change_language": "Change Language 🌐",
+    "status_pending": "Pending Verification ⏳",
+    "status_approved": "Approved ✅",
+    "status_declined": "Declined ❌",
+    "no_receipt_yet": "You haven't submitted any receipts yet. Type /start to begin.",
+    "already_pending": "⚠️ You already have a pending registration. Please wait for approval.",
+    "referral_message": "👥 **Refer and Earn!**\n\nShare your link with friends. When they register and get approved, you get credit!\n\n🔗 **Your referral link**:\n`{ref_link}`",
+    "ready_new_receipt": "Ready to submit a new receipt? Please select payment method below:",
+    "payment_saved": "✅ Payment method saved!",
+    "help_instructions": "ℹ️ **Founders Academy Bot Help**\n\n- Use /start to begin registration.\n- Use the menu buttons to submit receipts, refer friends, check status, or change language.",
+    "already_registered": "You have already registered. Please use the menu below to check your status or refer friends.",
+    "status_approved_msg": "🎉 **Your registration is approved!**\nReceipt: `{receipt}`\n\n🔗 Join our Private Channel here:\n{link}",
+    "status_declined_msg": "❌ **Your registration was declined.**\nReceipt: `{receipt}`\n\n⚠️ **Reason**: {reason}",
+    "status_pending_msg": "⏳ **Your registration is pending review.**\nReceipt: `{receipt}`\n\nWe will notify you once approved.",
     "default_decline_reason": "Details do not match our records.",
-    "last_approved_msg": "🎉 Your last registration is approved! ✅\nHere is your VIP link: {link} 🚀\n\nFeel free to submit another receipt or invite friends below! 💖",
-    "last_declined_msg": "Your last registration was declined. You can submit a fresh receipt using the menu below! 💪✨",
-    "last_pending_msg": "⏳ Your registration is currently pending review. We will ping you soon! 🚀",
-    "welcome_name_prefix": "Hello **{name}**! 👋✨\n\n",
-    "receipt_approved_msg": "🎉🥳 **APPROVED! Welcome to Founders Academy VIP!** 🚀✨\n\nHello **{name}**, your receipt `{receipt}` has been verified! You are officially unlocked! 🌟\n\n🔗 **Your Unique One-Time VIP Link**:\n{link}\n\n*Note: This link is super special and can only be used once!* 💖",
-    "receipt_declined_msg": "❌ **Verification Declined**\n\nHello **{name}**, sorry! Your receipt `{receipt}` was declined.\n\n⚠️ **Reason**: {reason}",
-    "referral_reward_msg": "🎁🥳 **CONGRATULATIONS! You referred 3 friends!** 🚀✨\n\nHello **{name}**, you unlocked the Founders Academy course for FREE! 🎉\n\n🔗 **Your VIP Access Link**:\n{link}",
-    "quiz_not_completed": "⚠️ **Quiz Not Completed**\n\nComplete all daily quizzes to claim your Certificate of Completion! 📜✨"
+    "last_approved_msg": "Your last registration is approved ✅\nHere is your link: {link}\n\nYou can use the menu buttons below to submit another receipt or refer friends!",
+    "last_declined_msg": "Your last registration was declined. You can submit another receipt using the menu below.",
+    "last_pending_msg": "Your registration is currently pending review. We will notify you once approved.",
+    "welcome_name_prefix": "Hello {name}! ",
+    "receipt_approved_msg": "🎉 **Receipt Verification Approved!**\n\nHello **{name}**, your receipt `{receipt}` has been verified successfully. You are now approved to join our premium private channel!\n\n🔗 **Your One-time Invite Link**:\n{link}\n\n*Note: This link is unique and can only be used by one person.*",
+    "receipt_declined_msg": "❌ **Receipt Verification Declined**\n\nHello **{name}**, we are sorry, but your receipt `{receipt}` has been declined.\n\n⚠️ **Reason**: {reason}",
+    "referral_reward_msg": "🎁 **Congratulations! You referred 3 friends successfully!**\n\nHello **{name}**, because you have referred 3 friends, you got the Founders Academy course for free! You are now approved to join our premium private channel!\n\n🔗 **Your One-time Invite Link**:\n{link}\n\n*Note: This link is unique and can only be used by one person.*",
+    "quiz_not_completed": "⚠️ **Quiz Not Completed**\n\nYou must complete all daily quizzes to get a certificate of completion."
   },
   "am": {
-    "welcome_choose_lang": "🇪🇹 ወደ ፋውንደርስ አካዳሚ የምዝገባ ቦት እንኳን ደህና መጡ!\nእባክዎ ተመራጭ ቋንቋዎን ከታች ይምረጡ:",
+    "welcome_choose_lang": "🇪🇹 ወደ ፋውንደርስ አካዳሚ ምዝገባ ቦት እንኳን ደህና መጡ!\nእባክዎ ተመራጭ ቋንቋዎን ከታች ይምረጡ:",
     "ask_name": "📝 እባክዎን ሙሉ ስምዎን ያስገቡ:",
     "ask_name_am": "📝 እባክዎ **ሙሉ ስምዎን በአማርኛ** ያስገቡ (ምሳሌ፡ አበበ በሶ):",
     "ask_name_en": "📝 እባክዎ **ሙሉ ስምዎን በእንግሊዝኛ** ያስገቡ (ምሳሌ፡ Abebe Beso):",
@@ -94,13 +91,12 @@ const STATIC_MESSAGES = {
     "menu_check_status": "ሁኔታ ማረጋገጫ 🔍",
     "menu_refer_friend": "ጓደኛ ጋብዝ 👥",
     "menu_change_language": "ቋንቋ ቀይር 🌐",
-    "menu_support": "የደንበኛ ድጋፍ 💬",
     "status_pending": "በመጠባበቅ ላይ ⏳",
     "status_approved": "ጸድቋል ✅",
     "status_declined": "ውድቅ ተደርጓል ❌",
     "no_receipt_yet": "እስካሁን ምንም ደረሰኝ አላስገቡም። ለመጀመር /start ብለው ይፃፉ።",
     "already_pending": "⚠️ ቀድሞውኑ በመጠባበቅ ላይ ያለ ምዝገባ አለዎት። እባክዎ እስኪፈቀድ ይጠብቁ።",
-    "referral_message": "👥 **ይጋብዙ እና ያግኙ!**\n\nየመጋበዣ ሊንክዎን ለጓደኞችዎ ያጋሩ። እነሱ ሲመዘገቡ እና ሲፈቀድላቸው እርስዎ ክሬዲት ያገኛሉ!\n\n🔗 **የእርስዎ መጋበዣ ሊንክ**:\n{ref_link}",
+    "referral_message": "👥 **ይጋብዙ እና ያግኙ!**\n\nየመጋበዣ ሊንክዎን ለጓደኞችዎ ያጋሩ። እነሱ ሲመዘገቡ እና ሲፈቀድላቸው እርስዎ ክሬዲት ያገኛሉ!\n\n🔗 **የእርስዎ መጋበዣ ሊንክ**:\n`{ref_link}`",
     "ready_new_receipt": "አዲስ ደረሰኝ ለማስገባት ዝግጁ ነዎት? እባክዎ ከታች የክፍያ ዘዴ ይምረጡ:",
     "payment_saved": "✅ የክፍያ ዘዴ ተቀምጧል!",
     "help_instructions": "ℹ️ **የፋውንደርስ አካዳሚ ቦት እርዳታ**\n\n- ለመመዝገብ /start ይጠቀሙ።\n- ደረሰኝ ለማስገባት፣ ጓደኞችን ለመጋበዝ፣ ሁኔታን ለማረጋገጥ ወይም ቋንቋ ለመቀየር የማውጫ ቁልፎችን ይጠቀሙ።",
@@ -117,104 +113,6 @@ const STATIC_MESSAGES = {
     "receipt_declined_msg": "❌ **የደረሰኝ ማረጋገጫ ተቀባይነት አላገኘም**\n\nሰላም **{name}**፣ የደረሰኝ ቁጥርዎ `{receipt}` ውድቅ ተደርጓል።\n\n⚠️ **ምክንያት**: {reason}",
     "referral_reward_msg": "🎁 **እንኳን ደስ አሰኞት! 3 ጓደኞችን በተሳካ ሁኔታ ጋብዘዋል!**\n\nሰላም **{name}**፣ 3 ሰዎችን ስለጋበዙ የፋውንደርስ አካዳሚ ኮርሱን በነጻ አግኝተዋል! አሁን የእኛን ፕሪሚየም የግል ቻናል ለመቀላቀል ፈቃድ አግኝተዋል!\n\n🔗 **የአንድ ጊዜ መጋበዣ ሊንክዎ**:\n{link}\n\n*ማስታወሻ: ይህ ሊንክ ልዩ ነው እና በአንድ ሰው ብቻ ነው ጥቅም ላይ ሊውል የሚችለው።*",
     "quiz_not_completed": "⚠️ **ጥያቄዎች አልተጠናቀቁም**\n\nየማጠናቀቂያ ሰርተፊኬት ለማግኘት ሁሉንም ዕለታዊ ጥያቄዎች ማጠናቀቅ አለብዎት።"
-  },
-  "om": {
-    "welcome_choose_lang": "🇪🇹 Baga nagaan gara Founders Academy dhuftan!\n\nMaaloo afaan filattan filadhaa:",
-    "ask_name": "Baga nagaan dhuftan! Haa jalqabnu.\n\nMaaloo **Maqaa Guutuu** keessan galchaa:",
-    "ask_name_am": "Maaloo guutuu maqaa keessanii **Afaan Amaaraatiin** barreessaa (fkn. አበበ በሶ):",
-    "ask_name_en": "Maaloo guutuu maqaa keessanii **Afaan Ingiliffaatiin** barreessaa (fkn. Abebe Beso):",
-    "invalid_name": "Maaloo maqaa guutuu sirrii ta'e (qubee qofa) galchaa.",
-    "ask_phone": "Baay'ee gaariidha! Amma maaloo liinkii gaditti argamu cuqaasuun **Lakkoofsa Bilbilaa** keessan nuuf qoodaa, ykn harkaan barreessaa (fkn, 0911...).",
-    "btn_share_contact": "Lakkoofsa Bilbilaa Qoodi 📞",
-    "phone_saved": "Lakkoofsi bilbilaa olkaa'ameera.",
-    "duplicate_phone": "Lakkoofsi bilbilaa kun kanaan dura galmeeffameera. Yoo kun dogoggora jedhanii yaaddan, maaloo deggersa keenya qunnamaa.",
-    "invalid_phone": "Maaloo lakkoofsa bilbilaa sirrii ta'e galchaa.",
-    "ask_payment_method": "Baay'ee gaariidha! Kaffaltii galmee keessanii akkamitti kaffaluu barbaaddu?\n\nMaaloo filannoo gaditti argaman keessaa tokko filadhaa:",
-    "btn_telebirr": "Telebirr 📱",
-    "btn_cbe": "CBE (Baankii Daldala Itiyoophiyaa) 🏦",
-    "btn_abyssinia": "Baankii Abisiiniyaa 🏦",
-    "select_payment_method_first": "Maaloo dura kaffaltii bilbilaa/baankii kanaan gaditti filadhaa.",
-    "telebirr_payment_instructions": "📱 **Kaffaltii Telebirr**\n\nMaaloo **{amount} ETB** gara kanaan ergaa:\n\n**Maqaa:** {acc_name}\n**Lakkoofsa:** `{acc_num}`\n\nYoo kaffaltii xumurtan, maaloo **Nagahee/Fakkii** kaffaltii keessanii kanaan gaditti ergaa:",
-    "cbe_payment_instructions": "🏦 **Kaffaltii CBE**\n\nMaaloo **{amount} ETB** gara kanaan ergaa:\n\n**Maqaa:** {acc_name}\n**Herrega Baankii:** `{acc_num}`\n\nYoo kaffaltii xumurtan, maaloo **Nagahee/Fakkii** kaffaltii keessanii kanaan gaditti ergaa:",
-    "abyssinia_payment_instructions": "🏦 **Kaffaltii Baankii Abisiiniyaa**\n\nMaaloo **{amount} ETB** gara kanaan ergaa:\n\n**Maqaa:** {acc_name}\n**Herrega Baankii:** `{acc_num}`\n\nYoo kaffaltii xumurtan, maaloo **Nagahee/Fakkii** kaffaltii keessanii kanaan gaditti ergaa:",
-    "ask_receipt_number": "Maaloo fakkii ykn screenshot nagahee kaffaltii sirrii ta'e ergaa:",
-    "registration_submitted": "**Galmeen Ergameera!**\n\nGalatoomaa! Odeeffannoon keessan gamaaggamaaf ergameera. Yoo mirkanaa'e liinkii affeerraa chaanaalii keessan ni argattu.",
-    "menu_submit_receipt": "Nagahee Ergi 📝",
-    "menu_check_status": "Haala Eegi 🔍",
-    "menu_refer_friend": "Hiriyaa Affeeri 👥",
-    "menu_change_language": "Afaan Jijjiiri 🌐",
-    "menu_support": "Deeggarsa Maamilaa 💬",
-    "status_pending": "⏳ **Haala: Eeggannoorra jira**\n\nNagaheen keessan garee keenyaan gamaaggamamaa jira. Akkuma mirkanaa'een isin beeksifna!",
-    "status_approved": "✅ **Haala: Mirkanaa'eera**\n\nGalmeen keessan mirkanaa'eera! Liinkii affeerraa chaanaalii argachuuf ergaa keessan ilaalaa.",
-    "status_declined": "❌ **Haala: Kufaa Ta'eera**\n\nGalmeen keessan kufaa ta'eera. Maaloo nagahee haaraa ergaa.",
-    "no_receipt_yet": "Hanga ammaatti nagahee hin ergitne. Jalqabuuf /start barreessaa.",
-    "already_pending": "Galmeen keessan kanaan dura gamaaggamamaa jira. Maaloo hamma admin mirkaneessutti eegaa.",
-    "referral_message": "👥 **Hiriyoota Affeeraa fi Badhaasa Argadhaa!**\n\nLiinkii affeerraa dhuunfaa keessan hiriyoota keessaniif qoodaa:\n\n`{ref_link}`",
-    "ready_new_receipt": "Nagahee haaraa haa erginu!\n\nKaffaltii galmee keessanii akkamitti kaffaluu barbaaddu?",
-    "payment_saved": "Malli kaffaltii filatameera. Nagahee eegaa jira.",
-    "help_instructions": "ℹ️ **Qajeelfama Galmee Founders Academy**\n\n1. Jalqabuuf /start barreessaa.\n2. Maqaa keessan ergaa.\n3. Lakkoofsa bilbilaa keessan qoodaa.\n4. Nagahee kaffaltii ergaa.",
-    "already_registered": "Kanaan dura galmeeffamtaniittu. Maaloo haala keessan ilaaluuf ykn hiriyoota affeeruuf menu gadii fayyadamaa.",
-    "status_approved_msg": "🔍 **Haala Galmee**\n\nNagahee: `{receipt}`\nHaala: Mirkanaa'eera ✅\n\n{link}",
-    "status_declined_msg": "🔍 **Haala Galmee**\n\nNagahee: `{receipt}`\nHaala: Kufaa Ta'eera ❌\n\nSababa: {reason}",
-    "status_pending_msg": "🔍 **Haala Galmee**\n\nNagahee: `{receipt}`\nHaala: Gamaaggama Admin irra jira ⏳",
-    "default_decline_reason": "Odeeffannoon galmeefamtanii fi ragaan keenya wal hin fudhanne.",
-    "last_approved_msg": "Galmeen keessan inni dhumaa mirkanaa'eera ✅\nLiinkii keessan kunoo: {link}",
-    "last_declined_msg": "Galmeen keessan inni dhumaa kufaa ta'eera.",
-    "last_pending_msg": "Galmeen keessan yeroo ammaa gamaaggamamaa jira.",
-    "welcome_name_prefix": "Galatoomaa, **{name}**.\n\n",
-    "receipt_approved_msg": "🎉 **Mirkaneessi Nagahee Mirkanaa'eera!**\n\nAkam jirta **{name}**, nagaheen keessan `{receipt}` milkiin mirkanaa'eera. Amma chaanaalii dhuunfaa makamuuf hayyamamtaniittu!\n\n🔗 **Liinkii Affeerraa**:\n{link}",
-    "receipt_declined_msg": "❌ **Mirkaneessi Nagahee Kufaa Ta'eera**\n\nAkam jirta **{name}**, dhiifama nagaheen keessan `{receipt}` kufaa ta'eera.\n\n⚠️ **Sababa**: {reason}",
-    "referral_reward_msg": "🎁 **Baga gammaddan! Hiriyoota 3 milkiin affeertaniittu!**\n\nAkam jirta **{name}**, koorsii Founders Academy bilisaan argattaniittu!\n\n🔗 **Liinkii Affeerraa**:\n{link}",
-    "quiz_not_completed": "⚠️ **Qabxiin Hin Xumuramne**\n\nWaraqaa ragaa xumuraa argachuuf gaaffilee guyyaa guyyaa hunda xumuruu qabdu."
-  },
-  "ti": {
-    "welcome_choose_lang": "🇪🇹 እንቋዕ ናብ ፋውንደርስ አካዳሚ ብደሓን መጻእኹም!\n\nበጃኹም ቋንቋኹም ይምረጹ:",
-    "ask_name": "እንቋዕ ብደሓን መጻእኹም! ንጀምር።\n\nበጃኹም **ምሉእ ስምኹም** የእትዉ:",
-    "ask_name_am": "በጃኹም ሙሉእ ስምኩም በ**አምሓርኛ** የእትዉ (ምሳሌ፡ አበበ በሶ):",
-    "ask_name_en": "በጃኹም ሙሉእ ስምኩም በ**እንግሊዝኛ** የእትዉ (ምሳሌ፡ Abebe Beso):",
-    "invalid_name": "በጃኹም ትክክለኛ ምሉእ ስም የእትዉ (ፊደላት ጥራይ)።",
-    "ask_phone": "ጣዕሚ ጽቡቕ! ሕጂ በጃኹም ነቲ ታሕቲ ዘሎ ቁልፊ ብምጥዋቕ **ቁጽሪ ስልክኹም** የካፍሉና፣ ወይ ብኢድኩም ጽሓፉ (ንኣብነት 0911...)",
-    "btn_share_contact": "ቁጽሪ ስልኪ ኣካፍል 📞",
-    "phone_saved": "ቁጽሪ ስልኪ ተዓቂቡ ኣሎ።",
-    "duplicate_phone": "እዚ ቁጽሪ ስልኪ እዚ ድሮ ተመዝጊቡ እዩ።",
-    "invalid_phone": "በጃኹም ትክክለኛ ቁጽሪ ስልኪ የእትዉ።",
-    "ask_payment_method": "ፍጹም! ናይ መመዝገቢ ክፍሊትኩም ብኸመይ ክትከፍሉ ትደልዩ?\n\nበጃኹም ካብቶም ታሕቲ ዘለዉ ኣማራጺታት ሓደ ይምረጹ:",
-    "btn_telebirr": "ቴሌብር 📱",
-    "btn_cbe": "የኢትዮጵያ ንግድ ባንክ 🏦",
-    "btn_abyssinia": "ኣቢሲንያ ባንኪ 🏦",
-    "select_payment_method_first": "በጃኹም ቅድም ቀደም ነቶም ላዕሊ ዘለዉ ቁልፍታት ብምጥቃም ኣገባብ ክፍሊት ይምረጹ።",
-    "telebirr_payment_instructions": "📱 **ናይ ቴሌብር ክፍሊት**\n\nበጃኹም **{amount} ETB** ናብዚ የተሓላልፉ:\n\n**ስም:** {acc_name}\n**ቁጽሪ:** `{acc_num}`\n\nክፍሊት ምስ ወዳእኹም፣ በጃኹም ናይቲ ደረሰኝ **ስክሪንሾት ወይ ፎቶ** ኣብ ታሕቲ ስደዱ:",
-    "cbe_payment_instructions": "🏦 **ናይ ንግዲ ባንኪ ክፍሊት**\n\nበጃኹም **{amount} ETB** ናብዚ የተሓላልፉ:\n\n**ስም:** {acc_name}\n**ቁጽሪ ሕሳብ:** `{acc_num}`\n\nክፍሊት ምስ ወዳእኹም፣ በጃኹም ናይቲ ደረሰኝ **ስክሪንሾት ወይ ፎቶ** ኣብ ታሕቲ ስደዱ:",
-    "abyssinia_payment_instructions": "🏦 **ናይ ኣቢሲንያ ባንኪ ክፍሊት**\n\nበጃኹም **{amount} ETB** ናብዚ የተሓላልፉ:\n\n**ስም:** {acc_name}\n**ቁጽሪ ሕሳብ:** `{acc_num}`\n\nክፍሊት ምስ ወዳእኹም፣ በጃኹም ናይቲ ደረሰኝ **ስክሪንሾት ወይ ፎቶ** ኣብ ታሕቲ ስደዱ:",
-    "ask_receipt_number": "በጃኹም ትክክለኛ ስክሪንሾት ወይ ፎቶ ናይ ደረሰኝኩም ስደዱ:",
-    "registration_submitted": "**ምዝገባ ተላኢኹ ኣሎ!**\n\nየቐንየልና! ናይ ምዝገባ ዝርዝርኩም ንግምገማ ተላኢኹ ኣሎ።",
-    "menu_submit_receipt": "ደረሰኝ ኣእቱ 📝",
-    "menu_check_status": "ኩነታት ኣረጋግጽ 🔍",
-    "menu_refer_friend": "ፈታዊ ዓድም 👥",
-    "menu_change_language": "ቋንቋ ቀይር 🌐",
-    "menu_support": "ደገፍ ዓማዊል 💬",
-    "status_pending": "⏳ **ኩነታት: ኣብ መስርሕ ዘሎ**",
-    "status_approved": "✅ **ኩነታት: ጸዲቑ**",
-    "status_declined": "❌ **ኩነታት: ውድቅ ተገይሩ**",
-    "no_receipt_yet": "ክሳብ ሕጂ ዝኾነ ደረሰኝ ኣየእተኹምን። ንምጅማር /start ኢልኩም ጽሓፉ።",
-    "already_pending": "ድሮ ኣብ መስርሕ ዘሎ ምዝገባ ኣለኩም።",
-    "referral_message": "👥 **ኣዕሩኽትኹም ብምዕዳም ሽልማት ረኽቡ!**\n\n`{ref_link}`",
-    "ready_new_receipt": "ሓድሽ ደረሰኝ ንስደድ!",
-    "payment_saved": "ኣገባብ ክፍሊት ተመሪጹ ኣሎ። ደረሰኝ ይጽበ ኣሎ።",
-    "help_instructions": "ℹ️ **መምርሒ ምዝገባ ፋውንደርስ አካዳሚ**\n\n1. ንምጅማር /start ጽሓፉ.\n2. ስምኩም ስደዱ.\n3. ቁጽሪ ስልክኹም የካፍሉ.",
-    "already_registered": "ድሮ ተመዝጊብኩም ኢኹም። በጃኹም ኩነታትኩም ንምፍላጥ ወይ ኣዕሩኽ ንምዕዳም ነቲ ታሕቲ ዘሎ መውጽኢ ተጠቐሙ።",
-    "status_approved_msg": "🔍 **ኩነታት ምዝገባ**\n\nደረሰኝ: `{receipt}`\nኩነታት: ጸዲቑ ✅\n\n{link}",
-    "status_declined_msg": "🔍 **ኩነታት ምዝገባ**\n\nደረሰኝ: `{receipt}`\nኩነታት: ውድቅ ተገይሩ ❌\n\nምክንያት: {reason}",
-    "status_pending_msg": "🔍 **ኩነታት ምዝገባ**\n\nደረሰኝ: `{receipt}`\nኩነታት: ብኣድሚን ይግምገም ኣሎ ⏳",
-    "default_decline_reason": "ዝርዝር ሓበሬታ ምስ ናይ መዝገብና ኣይተሰማምዐን።",
-    "last_approved_msg": "እቲ ናይ መወዳእታ ምዝገባኹም ጸዲቑ ኣሎ ✅\nሊንክኹም እዚ እዩ: {link}",
-    "last_declined_msg": "እቲ ናይ መወዳእታ ምዝገባኹም ውድቅ ተገይሩ።",
-    "last_pending_msg": "ምዝገባኹም ሕጂ ይግምገም ኣሎ።",
-    "welcome_name_prefix": "የቐንየልና፣ **{name}**።\n\n",
-    "receipt_approved_msg": "🎉 **ናይ ደረሰኝ ምርግጋጽ ጸዲቑ ኣሎ!**\n\nሰላም **{name}**፣ ደረሰኝኩም `{receipt}` ብዓወት ተረጋጊጹ ኣሎ።\n\n🔗 **ናይ ዕድመ ሊንክኹም**:\n{link}",
-    "receipt_declined_msg": "❌ **ናይ ደረሰኝ ምርግጋጽ ውድቅ ተገይሩ**\n\nሰላም **{name}**፣ ይቕሬታ ደረሰኝኩም `{receipt}` ውድቅ ተገይሩ ኣሎ።\n\n⚠️ **ምክንያት**: {reason}",
-    "referral_reward_msg": "🎁 **እንቋዕ ደስ በለኩም! 3 ኣዕሩኽትኹም ብዓወት ዓዲምኩም!**\n\n🔗 **ናይ ዕድመ ሊንክኹም**:\n{link}",
-    "quiz_not_completed": "⚠️ **ፈተናታት ኣይተዛዘሙን**\n\nናይ መወዳእታ ምስክር ወረቐት ንምርካብ ኩሎም መዓልታዊ ሕቶታት ክትውድኡ ይግባእ።"
   }
 };
 
@@ -328,7 +226,7 @@ function getMenuKeyboard(lang = "en") {
     keyboard: [
       [{ text: getMsg(lang, "menu_submit_receipt") }],
       [{ text: getMsg(lang, "menu_refer_friend") }, { text: getMsg(lang, "menu_check_status") }],
-      [{ text: getMsg(lang, "menu_change_language") }, { text: getMsg(lang, "menu_support") }]
+      [{ text: getMsg(lang, "menu_change_language") }]
     ],
     resize_keyboard: true
   };
@@ -338,7 +236,7 @@ async function getLanguageKeyboard() {
   try {
     const { data: langs } = await supabase.from("languages").select("*").eq("is_active", true);
     if (langs && langs.length > 0) {
-      const flags: any = { "en": "🇬🇧", "am": "🇪🇹", "om": "🇪🇹", "or": "🇪🇹", "ti": "🇪🇹", "tg": "🇪🇹" };
+      const flags: any = { "en": "🇬🇧", "am": "🇪🇹", "or": "🇪🇹", "tg": "🇪🇹", "om": "🇪🇹", "ti": "🇪🇹" };
       const buttons = langs.map((l: any) => ({
         text: `${flags[l.code] || "🌐"} ${l.name}`,
         callback_data: `lang:${l.code}`
@@ -354,8 +252,7 @@ async function getLanguageKeyboard() {
   }
   return {
     inline_keyboard: [
-      [{ text: "🇬🇧 English", callback_data: "lang:en" }, { text: "🇪🇹 አማርኛ", callback_data: "lang:am" }],
-      [{ text: "🇪🇹 Afaan Oromoo", callback_data: "lang:om" }, { text: "🇪🇹 ትግርኛ", callback_data: "lang:ti" }]
+      [{ text: "🇬🇧 English", callback_data: "lang:en" }, { text: "🇪🇹 አማርኛ", callback_data: "lang:am" }]
     ]
   };
 }
@@ -378,7 +275,7 @@ async function sendTelegramRequest(method: string, payload: any) {
   }
 }
 
-async function sendNextQuizQuestion(chatId: number) {
+async function sendNextQuizQuestion(chatId: number, isTest1Min = false) {
   const { data: prog } = await supabase.from("user_quiz_progress").select("*").eq("chat_id", chatId).maybeSingle();
   if (!prog) return;
 
@@ -457,7 +354,8 @@ async function sendNextQuizQuestion(chatId: number) {
       await sendTelegramRequest("sendMessage", { chat_id: chatId, text: msg, parse_mode: "Markdown", reply_markup: kb });
     } else {
       const { data: reg } = await supabase.from("registrations").select("*").eq("chat_id", chatId).order("created_at", { ascending: false }).limit(1).maybeSingle();
-      const daysSinceReg = reg ? Math.floor((Date.now() - new Date(reg.created_at).getTime()) / (24 * 3600 * 1000)) + 1 : 1;
+      const msDiff = reg ? (Date.now() - new Date(reg.created_at).getTime()) : 0;
+      const daysSinceReg = reg ? (isTest1Min ? Math.floor(msDiff / (60 * 1000)) + 1 : Math.floor(msDiff / (24 * 3600 * 1000)) + 1) : 1;
       const maxAllowedDay = Math.min(maxDay, daysSinceReg);
 
       if (day < maxAllowedDay) {
@@ -468,7 +366,7 @@ async function sendNextQuizQuestion(chatId: number) {
           last_completed_at: new Date().toISOString()
         }).eq("chat_id", chatId);
         
-        await sendNextQuizQuestion(chatId);
+        await sendNextQuizQuestion(chatId, isTest1Min);
       } else {
         await supabase.from("user_quiz_progress").update({ last_completed_at: new Date().toISOString() }).eq("chat_id", chatId);
         const [lang] = getLangAndStep(reg);
@@ -577,7 +475,6 @@ async function generateCertificatePdf(name: string, regDate: string, finishDate:
     const antiqueGold = "#C5A032";
     const pureGold    = "#FFD700";
 
-    // Helper: auto-pick font based on whether text has Ethiopic chars
     const hasEthiopic = (text: string) => /[\u1200-\u137F]/.test(text || "");
     const ethFont  = (bold: boolean) => bold ? "Ethiopic-Bold" : "Ethiopic";
     const latFont  = (bold: boolean) => bold ? "Helvetica-Bold" : "Helvetica";
@@ -586,133 +483,99 @@ async function generateCertificatePdf(name: string, regDate: string, finishDate:
     doc.registerFont("Ethiopic",      fontRegularBytes);
     doc.registerFont("Ethiopic-Bold", fontBoldBytes);
 
-    // ── Background ─────────────────────────────────────────────────────────
     doc.image(bgBytes, 0, 0, { width: 841.89, height: 595.28 });
 
-
-
-    // ── SECTION 2: Header and Logo (Side-by-Side) ──────────────────────────
-    // Logo Emblem (Centred at 110, 95)
     const logoX = 110, logoY = 95;
-    // Spark above green emblem
     doc.circle(logoX, logoY - 30, 4.5).fillColor(pureGold).fill();
-    // Forest Green stylized glyph
     doc.circle(logoX, logoY, 19.5).fillColor(forestGreen).fill();
     doc.circle(logoX, logoY, 13.5).fillColor("#ffffff").fill();
     doc.circle(logoX, logoY, 6).fillColor(forestGreen).fill();
 
-    // 1. Institution Name (Amharic)
     doc.fillColor(forestGreen).font(ethFont(true)).fontSize(31)
        .text("ፋውንደርስ አካዳሚ", 150, 30, { align: "center", width: 630 });
 
-    // 3. Institution Name (English)
     doc.fillColor(forestGreen).font(latFont(true)).fontSize(25)
        .text("FOUNDERS ACADEMY", 150, 65, { align: "center", width: 630 });
 
-    // 4. Certificate Title (Amharic)
     doc.fillColor(forestGreen).font(ethFont(true)).fontSize(24)
        .text("የአጭር ጊዜ ስልጠና የምስክር ወረቀት", 150, 95, { align: "center", width: 630 });
 
-    // 5. Certificate Title (English)
     doc.fillColor(forestGreen).font(latFont(true)).fontSize(21)
        .text("CERTIFICATE OF SHORT TERM TRAINING", 150, 125, { align: "center", width: 630 });
 
-    // ── Divider Lines (Double vertical lines in gold) ──────────────────────
     doc.lineWidth(1).strokeColor(antiqueGold);
     doc.moveTo(417.5, 192).lineTo(417.5, 435).stroke();
     doc.lineWidth(2).strokeColor(antiqueGold);
     doc.moveTo(421.5, 192).lineTo(421.5, 435).stroke();
 
-    // Settings variables
-    const programAm  = settings.cert_program_am  || "እደጥበብ";
+    const programAm  = settings.cert_program_am  || "ስልጠና";
     const programEn  = settings.cert_program_en  || "Hand Craft & Art";
     const durationAm = settings.cert_duration_am || "4";
     const durationEn = settings.cert_duration_en || "4";
 
-    // ── SECTION 3: Main Body Text (Left-Side Column) ──────────────────────
     const lx = 65, lw = 320;
-    // Line 1: ለ ________ (Name)
     doc.fillColor(forestGreen).font(ethFont(false)).fontSize(12).text("ለ", lx + 20, 212);
     doc.fillColor(forestGreen).font(autoFont(name, true)).fontSize(13)
        .text(name, lx + 40, 208, { width: lw - 40, align: "center" });
     doc.moveTo(lx + 35, 224).lineTo(lx + lw, 224).strokeColor(forestGreen).lineWidth(1).stroke();
 
-    // Line 2: በክራፍቶፒያ የእደጥበብ ማሰልጠኛ ተቋም _____
     doc.fillColor(forestGreen).font(ethFont(false)).fontSize(11).text("በፋውንደርስ አካዳሚ", lx, 246);
     doc.moveTo(lx + 215, 258).lineTo(lx + lw, 258).strokeColor(forestGreen).lineWidth(1).stroke();
     doc.fillColor(forestGreen).font(autoFont(durationAm, true)).fontSize(11)
        .text(durationAm, lx + 215, 244, { width: lw - 215, align: "center" });
 
-    // Line 3: ሳምንት ለተሰጠው የ _____
     doc.fillColor(forestGreen).font(ethFont(false)).fontSize(11).text("ሳምንት ለተሰጠው የ", lx, 281);
     doc.moveTo(lx + 105, 293).lineTo(lx + lw, 293).strokeColor(forestGreen).lineWidth(1).stroke();
     doc.fillColor(forestGreen).font(autoFont(programAm, true)).fontSize(11)
        .text(programAm, lx + 105, 279, { width: lw - 105, align: "center" });
 
-    // Line 4: ሙያ ስልጠና ተከታትለው ስላጠናቀቁ ይህ የምስክር ወረቀት ተሰጥቷቸዋል፡፡
     doc.fillColor(forestGreen).font(ethFont(false)).fontSize(11)
        .text("ሙያ ስልጠና ተከታትለው ስላጠናቀቁ ይህ የምስክር ወረቀት ተሰጥቷቸዋል፡፡", lx, 316, { width: lw, align: "justify", lineGap: 6 });
 
-    // ── SECTION 4: Main Body Text (Right-Side Column) ─────────────────────
     const rx = 455, rw = 320;
-    // Line 1: To ________ (Name)
     doc.fillColor(forestGreen).font(latFont(false)).fontSize(12).text("To", rx, 212);
     doc.fillColor(forestGreen).font(autoFont(actualName2, true)).fontSize(13)
        .text(actualName2, rx + 25, 208, { width: rw - 25, align: "center" });
     doc.moveTo(rx + 20, 224).lineTo(rx + rw, 224).strokeColor(forestGreen).lineWidth(1).stroke();
 
-    // Line 2 & 3: THIS CERTIFICATE IS PROUDLY PRESENTED FOR / SUCCESSFULLY COMPLETING A SHORT-TERM TRAINING
     doc.fillColor(forestGreen).font(latFont(false)).fontSize(10.5)
        .text("THIS CERTIFICATE IS PROUDLY PRESENTED FOR", rx, 246);
     doc.text("SUCCESSFULLY COMPLETING A SHORT-TERM TRAINING", rx, 268);
 
-    // Line 4: PROGRAM IN _______
     doc.text("PROGRAM IN", rx, 290);
     doc.moveTo(rx + 75, 302).lineTo(rx + rw, 302).strokeColor(forestGreen).lineWidth(1).stroke();
     doc.fillColor(forestGreen).font(autoFont(programEn, true)).fontSize(10.5)
        .text(programEn.toUpperCase(), rx + 75, 288, { width: rw - 75, align: "center" });
 
-    // Line 5: AT FOUNDERS ACADEMY.
     doc.fillColor(forestGreen).font(latFont(false)).fontSize(10.5).text("AT FOUNDERS ACADEMY.", rx, 314);
 
-    // Line 6: THE TRAINING WAS CONDUCTED FOR _____ WEEK.
     doc.text("THE TRAINING WAS CONDUCTED FOR", rx, 336);
     doc.moveTo(rx + 195, 348).lineTo(rx + 270, 348).strokeColor(forestGreen).lineWidth(1).stroke();
     doc.fillColor(forestGreen).font(autoFont(durationEn, true)).fontSize(10.5)
        .text(durationEn, rx + 195, 334, { width: 75, align: "center" });
     doc.fillColor(forestGreen).font(latFont(false)).text("WEEK.", rx + 275, 336);
 
-    // ── SECTION 5: Signature and Date Fields ──────────────────────────────
-    // Left Side (Amharic Footer)
-    // Small gold circular/abstract sigil or symbol positioned to the left of "ቀን"
     doc.circle(lx + 10, 467, 3).fillColor(antiqueGold).fill();
     doc.circle(lx + 10, 467, 1.5).fillColor("#ffffff").fill();
     
-    // "ቀን:" label
     doc.fillColor(forestGreen).font(ethFont(false)).fontSize(11).text("ቀን:", lx + 22, 461);
     
-    // Gold dashed line for Ethiopian Date
     doc.save();
     doc.strokeColor(antiqueGold).lineWidth(1).dash(3, { space: 3 });
     doc.moveTo(lx + 50, 473).lineTo(lx + 200, 473).stroke();
     doc.restore();
     
-    // "ዓ.ም" label
     doc.fillColor(forestGreen).font(ethFont(false)).fontSize(11).text("ዓ.ም", lx + 205, 461);
-    // Dynamic Date value
     const ethFinishDate = gregorianToEthiopianString(finishDate);
     doc.fillColor(forestGreen).font(autoFont(ethFinishDate, true)).fontSize(11)
        .text(ethFinishDate, lx + 50, 458, { width: 150, align: "center" });
 
-    // Right Side (English Footer)
-    // A small gold decorative sigil matching the stylized "spark" from the logo in the center
     const sigilX = rx + 160, sigilY = 405;
     doc.save();
     doc.translate(sigilX, sigilY);
     doc.moveTo(0, -6).lineTo(2, -2).lineTo(6, -2).lineTo(3, 1).lineTo(5, 5).lineTo(0, 2).lineTo(-5, 5).lineTo(-3, 1).lineTo(-6, -2).lineTo(-2, -2).closePath().fillColor(antiqueGold).fill();
     doc.restore();
 
-    // SIGNED line
     doc.fillColor(forestGreen).font(latFont(true)).fontSize(9).text("SIGNED:", rx, 461);
     doc.moveTo(rx + 45, 473).lineTo(rx + 180, 473).strokeColor(forestGreen).lineWidth(1).stroke();
     if (settings.signature_base64) {
@@ -735,7 +598,6 @@ async function generateCertificatePdf(name: string, regDate: string, finishDate:
       }
     }
 
-    // DATE line
     doc.fillColor(forestGreen).font(latFont(true)).fontSize(9).text("DATE:", rx + 195, 461);
     doc.moveTo(rx + 228, 473).lineTo(rx + rw, 473).strokeColor(forestGreen).lineWidth(1).stroke();
     doc.fillColor(forestGreen).font(autoFont(finishDate, true)).fontSize(9)
@@ -745,7 +607,6 @@ async function generateCertificatePdf(name: string, regDate: string, finishDate:
   });
 }
 
-
 let BOT_USERNAME: string | null = null;
 async function getBotUsername(): Promise<string> {
   if (BOT_USERNAME) return BOT_USERNAME;
@@ -754,9 +615,8 @@ async function getBotUsername(): Promise<string> {
     BOT_USERNAME = res.result.username;
     return BOT_USERNAME;
   }
-  return "FoundersAcademyBot";
+  return "foundersacademybot";
 }
-
 
 async function checkAndApplyReferralReward(referrerChatId: number) {
   if (!referrerChatId) return;
@@ -788,7 +648,6 @@ async function checkAndApplyReferralReward(referrerChatId: number) {
       const sDict = settings && settings.verification_code ? JSON.parse(settings.verification_code) : {};
       const channelId = sDict.telegram_channel_id || TELEGRAM_CHANNEL_ID || "-1003789578749";
 
-      // Unban user first in case they were previously banned/expired
       try {
         await sendTelegramRequest("unbanChatMember", {
           chat_id: channelId,
@@ -799,14 +658,12 @@ async function checkAndApplyReferralReward(referrerChatId: number) {
         console.error(`[Unban] Failed to unban referrer ${referrerReg.chat_id}:`, unbanErr.message);
       }
 
-      // Generate main channel invite link dynamically
       const inviteRes1 = await sendTelegramRequest("createChatInviteLink", {
         chat_id: channelId,
         member_limit: 1,
         name: `Free Referral Link for ${referrerReg.name || 'Student'}`
       });
 
-      // Generate private group invite link dynamically for group ID -1004377079119
       const inviteRes2 = await sendTelegramRequest("createChatInviteLink", {
         chat_id: "-1004377079119",
         member_limit: 1,
@@ -898,7 +755,6 @@ function base64UrlToBytes(b64url: string): Uint8Array {
   return bytes;
 }
 
-// Oak-like lightweight routing and request processing
 async function handleRequest(req: Request): Promise<Response> {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -919,6 +775,11 @@ async function handleRequest(req: Request): Promise<Response> {
     // --- CRON JOB FOR DAILY QUIZ & EXPIRATION CLEANUP ---
     if (path === "cron/send_daily_quiz" || path.endsWith("/cron/send_daily_quiz")) {
       console.log("[Cron] Running Deno Edge Function cron job...");
+      
+      const isTest1Min = url.searchParams.get("interval") === "1m" || Deno.env.get("CRON_INTERVAL") === "1m";
+      if (isTest1Min) {
+        console.log("[Cron] Running in 1-minute interval testing mode.");
+      }
       
       // 1. Process expired registrations
       try {
@@ -954,7 +815,6 @@ async function handleRequest(req: Request): Promise<Response> {
           for (const r of regs) {
             const chatId = r.chat_id;
             
-            // Get or create quiz progress
             let { data: prog } = await supabase.from("user_quiz_progress").select("*").eq("chat_id", chatId).maybeSingle();
             if (!prog) {
               const { data: newProg } = await supabase.from("user_quiz_progress").insert({
@@ -967,36 +827,35 @@ async function handleRequest(req: Request): Promise<Response> {
             }
             
             if (prog && !prog.is_completed) {
-              // Calculate allowed day since registration
-              const daysSinceReg = Math.floor((Date.now() - new Date(r.created_at).getTime()) / (24 * 3600 * 1000)) + 1;
+              const msDiff = Date.now() - new Date(r.created_at).getTime();
+              const daysSinceReg = isTest1Min 
+                ? Math.floor(msDiff / (60 * 1000)) + 1 
+                : Math.floor(msDiff / (24 * 3600 * 1000)) + 1;
               const maxAllowedDay = Math.min(maxQuizDay, daysSinceReg);
               
               const day = prog.current_day || 1;
               const qIndex = prog.current_question_index || 0;
               
-              // Load questions for the current day
               const { data: questions } = await supabase.from("questions").select("*").eq("day_number", day).order("created_at", { ascending: true });
               const dayQuestions = questions || [];
               
               if (day < maxAllowedDay && qIndex >= dayQuestions.length) {
-                // A new day is unlocked! Advance to next day.
                 await supabase.from("user_quiz_progress").update({
                   current_day: day + 1,
                   current_question_index: 0,
-                  last_sent_at: new Date().toISOString()
+                  last_completed_at: new Date().toISOString()
                 }).eq("chat_id", chatId);
-                await sendNextQuizQuestion(chatId);
+                await sendNextQuizQuestion(chatId, isTest1Min);
               } else if (qIndex < dayQuestions.length) {
-                // User hasn't finished the questions of their current day.
-                // Send them a reminder (current question) only if it's been >= 20 hours since last_sent_at (or if last_sent_at is null)
-                const lastSentStr = (prog as any).last_sent_at;
-                const shouldSend = !lastSentStr || (Date.now() - new Date(lastSentStr).getTime() >= 20 * 3600 * 1000);
+                const lastCompletedStr = prog.last_completed_at;
+                const limit = isTest1Min ? 60 * 1000 : 24 * 3600 * 1000;
+                const shouldSend = !lastCompletedStr || (Date.now() - new Date(lastCompletedStr).getTime() >= limit);
                 
                 if (shouldSend) {
                   await supabase.from("user_quiz_progress").update({
-                    last_sent_at: new Date().toISOString()
+                    last_completed_at: new Date().toISOString()
                   }).eq("chat_id", chatId);
-                  await sendNextQuizQuestion(chatId);
+                  await sendNextQuizQuestion(chatId, isTest1Min);
                 }
               }
             }
@@ -1010,7 +869,7 @@ async function handleRequest(req: Request): Promise<Response> {
     }
 
     // --- TELEGRAM BOT WEBHOOK ---
-    if (path === "bot" || path === "" || path === "api" || (req.method === "POST" && !path.startsWith("admin") && !path.startsWith("cron") && !path.startsWith("auth"))) {
+    if (path === "bot" || path === "" || path === "api" || (req.method === "POST" && !path.startsWith("admin") && !path.startsWith("cron") && !path.startsWith("auth") && !path.startsWith("login") && !path.startsWith("broadcast"))) {
       const update = await req.json();
 
       if (update.chat_member) {
@@ -1038,8 +897,6 @@ async function handleRequest(req: Request): Promise<Response> {
         const callbackQuery = update.callback_query;
         const callbackData = callbackQuery.data || "";
         const callbackQueryId = callbackQuery.id;
-        const adminChatId = callbackQuery.message.chat.id;
-        const adminMessageId = callbackQuery.message.message_id;
 
         if (callbackData.startsWith("approve:") || callbackData.startsWith("decline:")) {
           const isApprove = callbackData.startsWith("approve:");
@@ -1064,7 +921,6 @@ async function handleRequest(req: Request): Promise<Response> {
             const sDict = settings && settings.verification_code ? JSON.parse(settings.verification_code) : {};
             const channelId = sDict.telegram_channel_id || TELEGRAM_CHANNEL_ID || "-1003789578749";
 
-            // Unban user first in case they were previously banned/expired
             try {
               await sendTelegramRequest("unbanChatMember", {
                 chat_id: channelId,
@@ -1196,7 +1052,6 @@ async function handleRequest(req: Request): Promise<Response> {
                 reply_markup: getMenuKeyboard(lang)
               });
             } else {
-              // Ask them standard steps
               if (currentStep === "awaiting_name") {
                 await sendTelegramRequest("sendMessage", { chat_id: chatId, text: getMsg(lang, "ask_name_am"), parse_mode: "Markdown", reply_markup: getMenuKeyboard(lang) });
               } else if (currentStep === "awaiting_name2") {
@@ -1397,7 +1252,6 @@ async function handleRequest(req: Request): Promise<Response> {
       const text = (message.text || "").trim();
       const contact = message.contact;
 
-      // Admin linkage authentication interceptor
       if (text.toLowerCase().startsWith("/auth")) {
         const parts = text.split(/\s+/);
         if (parts.length === 4) {
@@ -1414,7 +1268,6 @@ async function handleRequest(req: Request): Promise<Response> {
               const now = new Date();
               const expiry = expiryStr ? new Date(expiryStr) : null;
               if (!expiry || now <= expiry) {
-                // Success! Link chat
                 await supabase.from("admins").update({ 
                   telegram_chat_id: chatId,
                   verification_code: null,
@@ -1468,7 +1321,7 @@ async function handleRequest(req: Request): Promise<Response> {
         if (now > expiry) {
           console.log(`[Expiration Trigger] User ${chatId} has expired. Expiry: ${reg.expires_at}`);
           await supabase.from("registrations").update({ status: "expired" }).eq("id", reg.id);
-          await kickUserFromChannel(chatId);
+          await removeUserFromChannel(chatId);
           const [lang] = getLangAndStep(reg);
           const msg = getMsg(lang, "access_expired_msg");
           await sendTelegramRequest("sendMessage", { chat_id: chatId, text: msg });
@@ -1483,49 +1336,11 @@ async function handleRequest(req: Request): Promise<Response> {
         return new Response("OK", { headers: corsHeaders });
       }
 
-      if (isMenuCommand(text, "menu_support") || text === "/support") {
-        const supportMsgs: any = {
-          "en": "💬✨ **Need Help? We're Here for You!** 🚀\n\nOur friendly support team is ready to assist you with any questions or issues! 🎉\n\n👉 **Tap below to chat with us:**\n@foundersupportt",
-          "am": "💬✨ **እርዳታ ይፈልጋሉ? እዚህ ነን!** 🚀\n\nለማንኛውም ጥያቄ ወይም ችግር የደንበኛ ድጋፍ ቡድናችን ዝግጁ ነው! 🎉\n\n👉 **ለማነጋገር ይጫኑ:**\n@foundersupportt",
-          "om": "💬✨ **Gargaarsa barbaaddu? Asiitti jirra!** 🚀\n\nGaaffi ykn rakkoo kamiyyaaf garee deggersa keenyatu isin eega! 🎉\n\n👉 **Nu qunnamuuf tuqi:**\n@foundersupportt",
-          "ti": "💬✨ **ሓገዝ ትደልዩ? ኣሎና!** 🚀\n\nን ዝኾነ ሕቶ ወይ ጸገም ናይ ደገፍ ጉጅለና ድሉው እዩ! 🎉\n\n👉 **ንምርካብ ጠዉቑ:**\n@foundersupportt"
-        };
-        const supportMsg = supportMsgs[lang] || supportMsgs["en"];
-        const supportKb = {
-          inline_keyboard: [[{ text: "💬 Chat Support", url: "https://t.me/foundersupportt" }]]
-        };
-        await sendTelegramRequest("sendMessage", { chat_id: chatId, text: supportMsg, parse_mode: "Markdown", reply_markup: supportKb });
-        return new Response("OK", { headers: corsHeaders });
-      }
-
       if (isMenuCommand(text, "menu_refer_friend") || text === "/refer") {
         const botUsername = await getBotUsername();
         const refLink = `https://t.me/${botUsername}?start=ref_${chatId}`;
-
-        // Count how many approved referrals this user already has
-        const { data: myReferrals } = await supabase
-          .from("registrations")
-          .select("status")
-          .eq("referred_by_chat_id", chatId);
-        const approvedCount = myReferrals ? myReferrals.filter((r: any) => r.status === "approved").length : 0;
-        const totalCount = myReferrals ? myReferrals.length : 0;
-
-        const progressMsgs: any = {
-          "en": `\n\n📊 **Your Progress**: ${approvedCount}/3 approved referrals 🏆`,
-          "am": `\n\n📊 **እድገትዎ**: ${approvedCount}/3 የጸደቁ ጓደኞች 🏆`,
-          "om": `\n\n📊 **Furtuu keessan**: ${approvedCount}/3 mirkanaa'an 🏆`,
-          "ti": `\n\n📊 **ምምሕዳርኹም**: ${approvedCount}/3 ዝጸደቑ 🏆`
-        };
-
-        const msg = getMsg(lang, "referral_message").replace("{ref_link}", refLink)
-          + (progressMsgs[lang] || progressMsgs["en"]);
-
-        const refKb = {
-          inline_keyboard: [[
-            { text: "📤 Share My Link", url: `https://t.me/share/url?url=${encodeURIComponent(refLink)}&text=${encodeURIComponent("Join Founders Academy and unlock amazing courses! 🚀")}` }
-          ]]
-        };
-        await sendTelegramRequest("sendMessage", { chat_id: chatId, text: msg, parse_mode: "Markdown", reply_markup: refKb });
+        const msg = getMsg(lang, "referral_message").replace("{ref_link}", refLink);
+        await sendTelegramRequest("sendMessage", { chat_id: chatId, text: msg, parse_mode: "Markdown", reply_markup: getMenuKeyboard(lang) });
         return new Response("OK", { headers: corsHeaders });
       }
 
@@ -1557,17 +1372,6 @@ async function handleRequest(req: Request): Promise<Response> {
 
       // /start handling
       if (text.startsWith("/start") || isMenuCommand(text, "menu_submit_receipt") || text === "/submit") {
-        // Parse referral FIRST — before any early-exit, so existing users don't lose the ref tracking
-        let referredBy: number | null = null;
-        const startParts = text.split(" ");
-        if (startParts.length > 1 && startParts[1].startsWith("ref_")) {
-          try {
-            referredBy = parseInt(startParts[1].replace("ref_", ""));
-            // Don't allow self-referral
-            if (referredBy === chatId) referredBy = null;
-          } catch (_e) { /* ignore */ }
-        }
-
         if (reg) {
           const status = reg.status;
           if (isMenuCommand(text, "menu_submit_receipt") || text === "/submit") {
@@ -1613,6 +1417,16 @@ async function handleRequest(req: Request): Promise<Response> {
           }
         }
 
+        let referredBy: number | null = null;
+        const parts = text.split(" ");
+        if (parts.length > 1 && parts[1].startsWith("ref_")) {
+          try {
+            referredBy = parseInt(parts[1].replace("ref_", ""));
+          } catch (_e) {
+            // ignore
+          }
+        }
+
         await supabase.from("registrations").insert({
           chat_id: chatId,
           step: "start",
@@ -1629,43 +1443,12 @@ async function handleRequest(req: Request): Promise<Response> {
         return new Response("OK", { headers: corsHeaders });
       }
 
-      // ── CONTACT SHARE: Always handle first, regardless of step ──────────
-      // If the user shared their contact, process it as a phone number immediately.
-      // This prevents state confusion where contact shares get misrouted.
-      if (contact) {
-        let phone = contact.phone_number || "";
-        // Normalize phone number: ensure it starts with + for international
-        if (phone && !phone.startsWith("+")) {
-          phone = "+" + phone;
-        }
-        if (!phone) {
-          await sendTelegramRequest("sendMessage", { chat_id: chatId, text: getMsg(lang, "invalid_phone") });
-          return new Response("OK", { headers: corsHeaders });
-        }
-        // Check for duplicate phone (ignore if same user)
-        const { data: existingC } = await supabase.from("registrations").select("chat_id").eq("phone", phone).maybeSingle();
-        if (existingC && existingC.chat_id !== chatId) {
-          await sendTelegramRequest("sendMessage", { chat_id: chatId, text: getMsg(lang, "duplicate_phone") });
-          return new Response("OK", { headers: corsHeaders });
-        }
-        await supabase.from("registrations").update({ phone: phone, step: buildStep(lang, "awaiting_payment_method") }).eq("id", reg.id);
-        const msgC = `${getMsg(lang, "phone_saved")}\n\n${getMsg(lang, "ask_payment_method")}`;
-        const kbC = {
-          inline_keyboard: [
-            [{ text: getMsg(lang, "btn_telebirr"), callback_data: "pay_telebirr" }, { text: getMsg(lang, "btn_cbe"), callback_data: "pay_cbe" }],
-            [{ text: getMsg(lang, "btn_abyssinia"), callback_data: "pay_abyssinia" }]
-          ]
-        };
-        await sendTelegramRequest("sendMessage", { chat_id: chatId, text: msgC, reply_markup: kbC });
-        return new Response("OK", { headers: corsHeaders });
-      }
-
       if (currentStep === "awaiting_name") {
-        if (!text || text.trim().length < 2) {
+        if (!text) {
           await sendTelegramRequest("sendMessage", { chat_id: chatId, text: getMsg(lang, "invalid_name") });
           return new Response("OK", { headers: corsHeaders });
         }
-        await supabase.from("registrations").update({ name: text.trim(), step: buildStep(lang, "awaiting_name2") }).eq("id", reg.id);
+        await supabase.from("registrations").update({ name: text, step: buildStep(lang, "awaiting_name2") }).eq("id", reg.id);
         await sendTelegramRequest("sendMessage", {
           chat_id: chatId,
           text: getMsg(lang, "ask_name_en"),
@@ -1676,43 +1459,34 @@ async function handleRequest(req: Request): Promise<Response> {
       }
 
       if (currentStep === "awaiting_name2") {
-        if (!text || text.trim().length < 2) {
+        if (!text) {
           await sendTelegramRequest("sendMessage", { chat_id: chatId, text: getMsg(lang, "invalid_name") });
           return new Response("OK", { headers: corsHeaders });
         }
-        await supabase.from("registrations").update({ name2: text.trim(), step: buildStep(lang, "awaiting_phone") }).eq("id", reg.id);
+        await supabase.from("registrations").update({ name2: text, step: buildStep(lang, "awaiting_phone") }).eq("id", reg.id);
         const keyboard = {
           keyboard: [[{ text: getMsg(lang, "btn_share_contact"), request_contact: true }]],
           one_time_keyboard: true,
           resize_keyboard: true
         };
-        const welcome = getMsg(lang, "welcome_name_prefix").replace("{name}", text.trim());
+        const welcome = getMsg(lang, "welcome_name_prefix").replace("{name}", text);
         await sendTelegramRequest("sendMessage", { chat_id: chatId, text: welcome + getMsg(lang, "ask_phone"), parse_mode: "Markdown", reply_markup: keyboard });
         return new Response("OK", { headers: corsHeaders });
       }
 
       if (currentStep === "awaiting_phone") {
-        // Handle typed phone number (contact share is handled above)
-        let phone = text ? text.trim() : null;
-        // Basic phone validation: must have digits
-        if (!phone || !/^[\+\d\s\-\(\)]{7,15}$/.test(phone)) {
-          const keyboard = {
-            keyboard: [[{ text: getMsg(lang, "btn_share_contact"), request_contact: true }]],
-            one_time_keyboard: true,
-            resize_keyboard: true
-          };
-          await sendTelegramRequest("sendMessage", { chat_id: chatId, text: getMsg(lang, "invalid_phone"), reply_markup: keyboard });
+        let phone = contact ? contact.phone_number : (text ? text : null);
+        if (!phone) {
+          await sendTelegramRequest("sendMessage", { chat_id: chatId, text: getMsg(lang, "invalid_phone") });
           return new Response("OK", { headers: corsHeaders });
         }
-        // Normalize: add + if starts with country code digits
-        if (!phone.startsWith("+")) {
-          phone = "+" + phone;
-        }
-        const { data: existing } = await supabase.from("registrations").select("chat_id").eq("phone", phone).maybeSingle();
+
+        const { data: existing } = await supabase.from("registrations").select("*").eq("phone", phone).maybeSingle();
         if (existing && existing.chat_id !== chatId) {
           await sendTelegramRequest("sendMessage", { chat_id: chatId, text: getMsg(lang, "duplicate_phone") });
           return new Response("OK", { headers: corsHeaders });
         }
+
         await supabase.from("registrations").update({ phone: phone, step: buildStep(lang, "awaiting_payment_method") }).eq("id", reg.id);
         const msg = `${getMsg(lang, "phone_saved")}\n\n${getMsg(lang, "ask_payment_method")}`;
         const kb = {
@@ -1772,7 +1546,7 @@ async function handleRequest(req: Request): Promise<Response> {
         }
 
         if (!photo && !message.photo_url) {
-          const errMsg = getMsg(lang, "err_upload_receipt_only");
+          const errMsg = lang === "en" ? "Please upload a screenshot/image of your receipt instead of typing text." : "እባክዎ ከመፃፍ ይልቅ የደረሰኝዎን ፎቶ/ቅጂ ይላኩ።";
           await sendTelegramRequest("sendMessage", { chat_id: chatId, text: errMsg });
           return new Response("OK", { headers: corsHeaders });
         }
@@ -1843,7 +1617,6 @@ async function handleRequest(req: Request): Promise<Response> {
         return new Response(JSON.stringify({ error: "Method not allowed" }), { status: 405, headers: corsHeaders });
       }
 
-      // Check auth
       const authHeader = req.headers.get("authorization");
       if (!authHeader || !authHeader.startsWith("Bearer ")) {
         return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders });
@@ -1854,12 +1627,10 @@ async function handleRequest(req: Request): Promise<Response> {
         return new Response(JSON.stringify({ error: "Unauthorized / Invalid Token" }), { status: 401, headers: corsHeaders });
       }
 
-      // Get form data
       const formData = await req.formData();
       const text = formData.get("text") as string || "";
       const file = formData.get("file") as File | null;
 
-      // Fetch all registrations from database
       const { data: regs, error: dbErr } = await supabase.from("registrations").select("chat_id");
       if (dbErr) {
         return new Response(JSON.stringify({ error: `Database error: ${dbErr.message}` }), { status: 500, headers: corsHeaders });
@@ -1878,7 +1649,6 @@ async function handleRequest(req: Request): Promise<Response> {
         const mimetype = file.type;
         const isVideo = filename.endsWith(".mp4") || filename.endsWith(".mov") || filename.endsWith(".avi") || filename.endsWith(".mkv") || filename.endsWith(".gif") || mimetype.includes("video");
         
-        // Upload media to Supabase Storage
         const fileBytes = new Uint8Array(await file.arrayBuffer());
         const fileName = `broadcast_${Date.now()}_${file.name.toLowerCase().replace(/[^a-z0-9.]/g, "_")}`;
         const uploadUrl = `${SUPABASE_URL}/storage/v1/object/receipts/${fileName}`;
