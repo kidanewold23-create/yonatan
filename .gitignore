@@ -19,7 +19,11 @@ pip-delete-this-directory.txt
 .DS_Store
 Thumbs.db
 
-# Node.js dependencies
+# Node.js dependencies & binary zips
 node_modules/
 node-env/
 last_verification_code.txt
+*.zip
+supabase_bin/
+supabase_bin4/
+supabase_cli/
